@@ -1,0 +1,10 @@
+##stitch##
+image_filename:/Volumes/Untitled 2/Images/raw
+output_filename:/Volumes/Untitled 2/Images/stitched
+output_fileformat:Ch_8_initial
+fileformat:20161128_Ch_8_Ch_4_0160
+dimv_horzoffset:339
+dimv_vertoffset:-29
+dimh_horzoffset:2
+dimh_vertoffset:248
+stitch_order:3,4,15,16,17,18,8,9,10,11,1,2,3,4
