@@ -22,7 +22,7 @@ def userconfiganalysis(wd, analysis_pos, analysis):
             parameters_ = {splitline[0]:splitline[1].strip()}
             parameters = {**parameters, **parameters_}
         counter += 1
-    
+        
     #1. STITCH
     if analysis == 'stitch':
         parameters['dimh_horzoffset'] = np.int(parameters['dimh_horzoffset'])
@@ -36,5 +36,45 @@ def userconfiganalysis(wd, analysis_pos, analysis):
             stitchval[counter] = np.int(val)
             counter += 1
         parameters['stitch_order'] = stitchval
+    
+    #2. CROP
+    if analysis == 'crop':
+        cropmatval = parameters['cropmat']
+        cropmatval = cropmatval.split(',')
+        counter = 0
+        for val in cropmatval:
+            cropmatval[counter] = np.int(val)
+            counter += 1
+        parameters['cropmat'] = cropmatval
+    
+    #3. WC
+    if analysis == 'wc':
+        parameters['b_w'] = np.float(parameters['b_w'])
+        parameters['s_w'] = np.float(parameters['s_w'])
+        parameters['s_a'] = np.float(parameters['s_a'])
+        parameters['s_s'] = np.float(parameters['s_s'])
+        parameters['x_s'] = np.float(parameters['x_s'])
+        parameters['x_a'] = np.float(parameters['x_a'])
+    
+    #4. MASK
+    if analysis == 'mask':
+        parameters['windowsize'] = np.int(parameters['windowsize'])
+        parameters['threshold'] = np.float(parameters['threshold'])
+        parameters['globthresh'] = np.float(parameters['globthresh'])
+    
+    #5. IMAGEFILTER
+    if analysis == 'imagefilter':
+        parameters['bwareaval'] = np.int(parameters['bwareaval'])
+        parameters['medfilterval'] = np.int(parameters['medfilterval'])
+        
+    #6. DISTMAP
+    if analysis == 'distmap':
+        parameters['maxval'] = np.int(parameters['maxval'])
+    
+    #7. RADWC
+    if analysis == 'radwc':
+        parameters['pixelbin'] np.int(parameters['pixelbin'])
+    
+    #8. THICKNESS
     
     return(parameters)

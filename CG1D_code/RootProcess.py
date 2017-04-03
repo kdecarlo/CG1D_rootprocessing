@@ -595,7 +595,7 @@ def crop(image_filename, output_filename, cropmat = [0,0,0,0]):
     cropmat = [96,2848,1248,6384]
     '''
     mask = fits.open(image_filename)[0].data
-    
+        
     imdim = np.shape(mask)
     
     if np.sum(cropmat) == 0:
@@ -607,6 +607,7 @@ def crop(image_filename, output_filename, cropmat = [0,0,0,0]):
         x = cropmat[2:4]
     
     mask = mask[int(imdim[0]-y[1]):int(imdim[0]-y[0]+1),int(x[0]):int(x[1]+1)]
+    
     imghdu = fits.PrimaryHDU(mask)
     hdulist = fits.HDUList([imghdu])
     hdulist.writeto(output_filename)

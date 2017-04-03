@@ -133,6 +133,9 @@ def stitch(parameters):
     elif imformat == 'tiff':
         img = image[row_first:row_last,col_first:col_last]
         img = np.flipud(img)
-        scipy.misc.imsave(output_fn, img)
+        img = Image.fromarray(img)
+        img.save(output_fn)
+
+        #scipy.misc.imsave(output_fn, img)
     
     timer.end(starttime)

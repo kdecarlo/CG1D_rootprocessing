@@ -14,6 +14,7 @@ import os
 def IOfilecheck(input_filename, output_filename):
     Icheck = 0
     Ocheck = 0
+    
     if not os.path.isdir(input_filename):
         os.makedirs(input_filename)
     if not os.path.isdir(output_filename):
