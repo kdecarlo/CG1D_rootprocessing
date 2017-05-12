@@ -5,7 +5,7 @@ import scipy.ndimage as imp
 import datetime
 
 from scipy import ndimage
-from skimage.morphology import skeletonize
+#from skimage.morphology import skeletonize
 import scipy.misc
 from scipy.signal import medfilt
 from PIL import Image
@@ -23,7 +23,9 @@ def run(wd, analysis_list, parameters_ = 0, override = 0):
     sys.path.append(wd+'/Misc')
     
     from IOfilecheck import IOfilecheck
-    from timer import timer
+    from timerstart import timerstart
+    from timerprogress import timerprogress
+    from timerend import timerend
     from stitch import stitch
     from crop import crop
     from wc import wc

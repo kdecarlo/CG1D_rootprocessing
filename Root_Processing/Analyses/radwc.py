@@ -11,7 +11,9 @@ from scipy.signal import medfilt
 from PIL import Image
 import os
 
-from timer import timer
+from timerstart import timerstart
+from timerprogress import timerprogress
+from timerend import timerend
 from remove import remove
 
 def radwc(parameters):
@@ -57,7 +59,7 @@ def radwc(parameters):
     starttime = time.time()
     scriptname = 'radwc'
     
-    timer.start(scriptname)
+    timerstart(scriptname)
     
     wc_filename = parameters['wc_filename']
     distmap_filename = parameters['distmap_filename']
@@ -110,7 +112,7 @@ def radwc(parameters):
 
     for i in range(0,np.shape(newdistrange)[0]-1):
         for j in range(1,np.shape(radrange)[0]):
-            [pctval,counter] = timer.progress(counter,pctval,totalcount)
+            [pctval,counter] = timerprogress(counter,pctval,totalcount)
             
             image_pos = (image_rootdist >= newdistrange[i]) & (image_rootdist < newdistrange[i+1]) & (image_distmap == radrange[j])
             if np.sum(image_pos) > 0:

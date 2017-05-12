@@ -1,6 +1,6 @@
 1. STITCH
-image_filename:/Volumes/Untitled 2/Images/raw
-output_filename:/Volumes/Untitled 2/Images/stitched
+image_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/raw
+output_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/stitched
 output_fileformat:Ch_8_initial
 fileformat:20161128_Ch_8_Ch_4_0160
 dimv_horzoffset:339
@@ -10,13 +10,13 @@ dimh_vertoffset:248
 stitch_order:3,4,15,16,17,18,8,9,10,11,1,2,3,4
 
 2. CROP
-image_filename:/Volumes/Untitled 2/Images/stitched/Ch_8_initial_stitched.tiff
-output_filename:/Volumes/Untitled 2/Images/crop/Ch_8_initial_crop.tiff
+image_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/stitched/Ch_8_initial_stitched.tiff
+output_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/crop/Ch_8_initial_crop.tiff
 cropmat:0,0,0,0
 
 3. WC
-image_filename:/Volumes/Untitled 2/Images/crop/Ch_8_initial_crop.tiff
-output_filename:/Volumes/Untitled 2/Images/wc/Ch_8_initial_wc.tiff
+image_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/crop/Ch_8_initial_crop.tiff
+output_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/wc/Ch_8_initial_wc.tiff
 b_w:-2.14
 s_w:5.3
 s_a:0.02015
@@ -25,34 +25,34 @@ x_s:1
 x_a:0.2
 
 4. MASK
-image_filename:/Volumes/Untitled 2/Images/crop/Ch_8_initial_crop.tiff
-output_filename:/Volumes/Untitled 2/Images/mask/Ch_8_initial_mask.tiff
+image_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/crop/Ch_8_initial_crop.tiff
+output_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/mask/Ch_8_initial_mask.tiff
 windowsize:101
 threshold:0.05
 globthresh:0.3
 
 5. IMAGEFILTER
-image_filename:/Volumes/Untitled 2/Images/mask/Ch_8_initial_mask.tiff
-output_filename:/Volumes/Untitled 2/Images/mask_filter/Ch_8_initial_filter.tiff
+image_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/mask/Ch_8_initial_mask.tiff
+output_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/mask_filter/Ch_8_initial_filter.tiff
 bwareaval:800
 medfilterval:5
 
 6. DISTMAP
-image_filename:/Volumes/Untitled 2/Images/mask_filter/Ch_8_initial_filter.tiff
-output_filename:/Volumes/Untitled 2/Images/distmap/Ch_8_initial_distmap.tiff
+image_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/mask_filter/Ch_8_initial_filter.tiff
+output_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/distmap/Ch_8_initial_distmap.tiff
 maxval:400
 
 7. RADWC
-wc_filename:/Volumes/Untitled 2/Images/wc/Ch_8_initial_wc.tiff
-distmap_filename:/Volumes/Untitled 2/Images/distmap/Ch_8_initial_distmap.tiff
-mask_filename:/Volumes/Untitled 2/Images/mask/Ch_8_initial_mask.tiff
-output_filename:/Volumes/Untitled 2/Images/radwc/Ch_8_initial
+wc_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/wc/Ch_8_initial_wc.tiff
+distmap_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/distmap/Ch_8_initial_distmap.tiff
+mask_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/mask/Ch_8_initial_mask.tiff
+output_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/radwc/Ch_8_initial
 fileformat:Ch_8_initial
 pixelbin:3
 
 8. THICKNESS
-image_filename:/Volumes/Untitled 2/Images/mask_filter/Ch_8_initial_filter.tiff
-output_filename:/Volumes/Untitled 2/Images/thickness/Ch_8_initial_thickness.tiff
+image_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/mask_filter/Ch_8_initial_filter.tiff
+output_filename:C:/Users/kdecarlo/Python_scripts/Root_Processing/Data/thickness/Ch_8_initial_thickness.tiff
 
 9. TOPOLOGYFILTER
 image_filename:

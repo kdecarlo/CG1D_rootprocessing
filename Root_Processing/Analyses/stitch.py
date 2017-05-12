@@ -11,7 +11,9 @@ from scipy.signal import medfilt
 from PIL import Image
 import os
 
-from timer import timer
+from timerstart import timerstart
+from timerprogress import timerprogress
+from timerend import timerend
 
 def stitch(parameters):
     '''
@@ -107,7 +109,7 @@ def stitch(parameters):
     
     imformat = 'tiff'
     
-    timer.start(scriptname)
+    timerstart(scriptname)
     
     image_fn = image_filename+'/'+fileformat+'_'
     if output_fileformat == 0:   
@@ -216,4 +218,4 @@ def stitch(parameters):
 
         #scipy.misc.imsave(output_fn, img)
     
-    timer.end(starttime)
+    timerend(starttime)

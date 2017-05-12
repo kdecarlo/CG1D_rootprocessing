@@ -11,7 +11,9 @@ from scipy.signal import medfilt
 from PIL import Image
 import os
 
-from timer import timer
+from timerstart import timerstart
+from timerprogress import timerprogress
+from timerend import timerend
 
 def wc(parameters):
     '''
@@ -45,7 +47,7 @@ def wc(parameters):
     starttime = time.time()
     scriptname = 'wc'
     
-    timer.start(scriptname)
+    timerstart(scriptname)
     
     image_filename = parameters['image_filename']
     output_filename = parameters['output_filename']
@@ -80,4 +82,4 @@ def wc(parameters):
     
     #scipy.misc.imsave(output_filename, x_w)
     
-    timer.end(starttime)
+    timerend(starttime)

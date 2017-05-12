@@ -11,7 +11,9 @@ from scipy.signal import medfilt
 from PIL import Image
 import os
 
-from timer import timer
+from timerstart import timerstart
+from timerprogress import timerprogress
+from timerend import timerend
 from windowrange import windowrange
 from distwindowrange import distwindowrange
 
@@ -51,7 +53,7 @@ def thickness(parameters):
     image_filename = parameters['image_filename']
     output_filename = parameters['output_filename']
 
-    timer.start(scriptname)
+    timerstart(scriptname)
 
     image = Image.open(image_filename)
     image = np.array(image)
@@ -88,7 +90,7 @@ def thickness(parameters):
     totalcount = np.shape(pixelpos_x)[0]
 
     for m in range(0,np.shape(pixelpos_x)[0]):
-        [pctval,counter] = timer.progress(counter,pctval,totalcount)
+        [pctval,counter] = timerprogress(counter,pctval,totalcount)
 
         i = pixelpos_y[m]
         j = pixelpos_x[m]
@@ -128,5 +130,5 @@ def thickness(parameters):
     T_map = Image.fromarray(T_map)
     T_map.save(output_filename)
     
-    timer.end(starttime)
+    timerend(starttime)
     

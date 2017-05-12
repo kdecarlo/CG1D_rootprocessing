@@ -11,7 +11,9 @@ from scipy.signal import medfilt
 from PIL import Image
 import os
 
-from timer import timer
+from timerstart import timerstart
+from timerprogress import timerprogress
+from timerend import timerend
 from windowrange import windowrange
 from remove import remove
 
@@ -49,7 +51,7 @@ def distmap(parameters):
     starttime = time.time()
     scriptname = 'distmap: contours'
     
-    timer.start(scriptname)
+    timerstart(scriptname)
     
     #image = fits.open(image_filename)[0].data
     #image = Image.open(image_filename)
@@ -108,7 +110,7 @@ def distmap(parameters):
     
     #7. Loop through all contour pixels
     for i in range(np.shape(contourpos_y)[0]):
-        [pctval,counter] = timer.progress(counter,pctval,totalcount)
+        [pctval,counter] = timerprogress(counter,pctval,totalcount)
 
         y = contourpos_y[i]
         x = contourpos_x[i]
@@ -126,13 +128,13 @@ def distmap(parameters):
     #8. Soil map where each soil pixel corresponds to closest medial axis
     soil_contour_map = np.zeros(np.shape(image))
     
-    timer.end(starttime)
+    timerend(starttime)
 
     
     starttime = time.time()
     scriptname = 'distmap: soil dist'
     
-    timer.start(scriptname)
+    timerstart(scriptname)
     
     
     
@@ -142,7 +144,7 @@ def distmap(parameters):
     
     
     for i in range(np.shape(pixelpos_y)[0]):
-        [pctval,counter] = timer.progress(counter,pctval,totalcount)
+        [pctval,counter] = timerprogress(counter,pctval,totalcount)
 
         y = pixelpos_y[i]
         x = pixelpos_x[i]
@@ -176,4 +178,4 @@ def distmap(parameters):
     #hdulist = fits.HDUList([imghdu])
     #hdulist.writeto(output_filename)
     
-    timer.end(starttime)
+    timerend(starttime)

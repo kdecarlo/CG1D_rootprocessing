@@ -11,7 +11,9 @@ from scipy.signal import medfilt
 from PIL import Image
 import os
 
-from timer import timer
+from timerstart import timerstart
+from timerprogress import timerprogress
+from timerend import timerend
 from windowrange import windowrange
 
 
@@ -56,7 +58,7 @@ def mask(parameters):
     starttime = time.time()
     scriptname = 'mask'
     
-    timer.start(scriptname)
+    timerstart(scriptname)
     
     image_filename = parameters['image_filename']
     output_filename = parameters['output_filename']
@@ -80,7 +82,7 @@ def mask(parameters):
     
     for i in range(0,imdim[0]):
           for j in range(0,imdim[1]):
-                [pctval,counter] = timer.progress(counter,pctval,totalcount)
+                [pctval,counter] = timerprogress(counter,pctval,totalcount)
                 [y1,y2,x1,x2] = windowrange(i,j,windowsize,imdim)
                 avgval = np.mean(image[y1:y2,x1:x2])
                 if avgval <= globthresh:
@@ -95,4 +97,4 @@ def mask(parameters):
     #hdulist = fits.HDUList([imghdu])
     #hdulist.writeto(output_filename)
     
-    timer.end(starttime)
+    timerend(starttime)
