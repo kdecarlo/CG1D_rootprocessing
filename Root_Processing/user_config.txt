@@ -12,7 +12,7 @@ stitch_order:3,4,15,16,17,18,8,9,10,11,1,2,3,4
 2. CROP
 image_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Data/stitched/Ch_8_initial_stitched.tiff
 output_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Data/crop/Ch_8_initial_crop.tiff
-cropmat:0,0,0,0
+cropmat:1776,2500,2000,3000
 
 3. WC
 image_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Data/crop/Ch_8_initial_crop.tiff
@@ -58,3 +58,8 @@ output_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Data/thickness/Ch
 image_filename:
 output_filename:
 medfilterval:5
+
+10. ROOTIMAGE
+wc_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Data/wc/Ch_8_initial_wc.tiff
+mask_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Data/mask_filter/Ch_8_initial_filter.tiff
+output_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Data/rootimage/Ch_8_initial_rootimage.tiff

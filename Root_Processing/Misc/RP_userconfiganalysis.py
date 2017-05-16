@@ -77,4 +77,6 @@ def RP_userconfiganalysis(wd, analysis_pos, analysis):
     
     #8. THICKNESS
     
+    #9. ROOTIMAGE
+    
     return(parameters)

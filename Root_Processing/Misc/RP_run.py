@@ -39,6 +39,7 @@ def RP_run(wd, analysis_list, parameters_ = 0, override = 0):
     from RP_distwindowrange import RP_distwindowrange
     from RP_remove import RP_remove
     from RP_topologyfilter import RP_topologyfilter
+    from RP_rootimage import RP_rootimage
     
     '''
     Definitions that can be run for analysis (see below for details):
@@ -101,11 +102,12 @@ def RP_run(wd, analysis_list, parameters_ = 0, override = 0):
         'RP_crop':[13,15],
         'RP_wc':[18,25], 
         'RP_mask':[28,32],
-        'RP_maskfilter':[35,38],
+        'RP_imagefilter':[35,38],
         'RP_distmap':[41,43],
         'RP_radwc':[46,51],
         'RP_thickness':[54,55],
-        'RP_topologyfilter':[58,60]
+        'RP_topologyfilter':[58,60],
+        'RP_rootimage':[63,65]
     }
     
     
@@ -127,7 +129,8 @@ def RP_run(wd, analysis_list, parameters_ = 0, override = 0):
         'RP_remove':RP_remove,
         'RP_distmap':RP_distmap,
         'RP_radwc':RP_radwc,
-        'RP_topologyfilter':RP_topologyfilter
+        'RP_topologyfilter':RP_topologyfilter,
+        'RP_rootimage':RP_rootimage
     }    
     
     for analysis in analysis_list:
@@ -142,6 +145,9 @@ def RP_run(wd, analysis_list, parameters_ = 0, override = 0):
         elif analysis == 'RP_radwc':
             I = parameters_['wc_filename'].rsplit('/',1)[0]
             O = parameters_['output_filename']
+        elif analysis == 'RP_rootimage':
+            I = parameters['wc_filename'].rsplit('/',1)[0]
+            O = parameters['output_filename'].rsplit('/',1)[0]
         else:
             I = parameters['image_filename'].rsplit('/',1)[0]
             O = parameters['output_filename'].rsplit('/',1)[0]
