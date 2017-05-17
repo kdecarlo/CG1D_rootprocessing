@@ -1,4 +1,4 @@
 *.py[c-o]
 .DS_Store
-__pyache__
+__pycache__
 
