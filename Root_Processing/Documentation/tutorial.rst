@@ -29,11 +29,11 @@ From here, we will use the 'RP_run' module, which will act as the top-level prog
 
     from RP_run import RP_run
 
-We will then specify the analyses of interest (you can choose from 'RP_stitch', 'RP_crop', 'RP_wc', 'RP_mask', 'RP_imagefilter', 'RP_distmap', 'RP_radwc', and 'RP_rootimage').  You can run these in any order, but make sure that you have the necessary images and analyses completed first (e.g. 'RP_radwc' requires the output from 'RP_wc', 'RP_imagefilter', and 'RP_distmap' in order to run)::
+We will then specify the analyses of interest.  You can run these in any order, but make sure that you have the necessary images and analyses completed first.  Below is the suggested order of the analyses::
 
     analysis_list = ['RP_stitch', 'RP_crop', 'RP_wc', 'RP_mask', 'RP_imagefilter', 'RP_distmap', 'RP_radwc', 'RP_rootimage']
 
-Once this is complete, then simply run the module::
+Once this is complete, then simply run the module, and the outputted subdirectories/data will automatically be placed in the 'Sample_Data' subdirectory::
 	
     RP_run(wd, analysis_list)
 
