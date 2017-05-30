@@ -28,13 +28,14 @@ def RP_IOfilecheck(input_filename, output_filename):
     A. INPUTS - 
     1. image_filename: filename where images are to be found.  
     2. output_filename: filename where image is to be saved.   
+    3. filedirectoryflag: flag whether missing file should be made if not present.  0 means no, 1 means yes.
     
     B. OUTPUTS -
     1. IOcheck: flag indicating data presence in input/output file.
     '''
+    
     Icheck = 0
     Ocheck = 0
-    
     if not os.path.isdir(input_filename):
         os.makedirs(input_filename)
     if not os.path.isdir(output_filename):

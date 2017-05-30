@@ -34,7 +34,7 @@ def RP_mask(parameters):
     PARAMETERS:
     1. image_filename: filename of evaluated image.  
     2. output_filename: filename where image is to be saved.
-    3. windowsize: size of window.  Default is 101 pixels.
+    3. windowsize: size of window.  Default is 101 pixels.  Must be an odd number.
     4. threshold: minimum threshold against which image/average value difference will be 
     evaluated.  Default is 0.05.
     5. globthresh: value where if average pixel value in window is lower than, will automatically 

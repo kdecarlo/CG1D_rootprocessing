@@ -101,7 +101,6 @@ def RP_radwc(parameters):
     
     counter = 0
     pctval = 0
-    totalcount = np.shape(data)[0]*np.shape(data)[1]
 
     outline_img = RP_remove(image_mask)
     image_mask_wooutline = image_mask > 0
@@ -110,6 +109,7 @@ def RP_radwc(parameters):
     image_rootdist[image_mask_wooutline] = -1
     
 
+    totalcount = (np.shape(newdistrange)[0]-1)*(np.shape(radrange)[0]-1)
     for i in range(0,np.shape(newdistrange)[0]-1):
         for j in range(1,np.shape(radrange)[0]):
             [pctval,counter] = RP_timerprogress(counter,pctval,totalcount)

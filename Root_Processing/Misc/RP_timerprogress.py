@@ -41,6 +41,13 @@ def RP_timerprogress(counter, pctval, totalcount):
     2. counter: the current counter number, with progress added.
     '''
     
+    if totalcount < 100:
+        if counter/totalcount >= pctval:
+            print(round(100*pctval), end=' ')
+            pctval += round(100/totalcount)/100
+            counter += 1
+            return (pctval, counter)
+    
     if counter/totalcount >= pctval:
         print(round(100*pctval), end=' ')
         pctval += 0.01

@@ -55,6 +55,11 @@ def RP_distmap(parameters):
     
     #image = fits.open(image_filename)[0].data
     #image = Image.open(image_filename)
+    
+    IO_rootimage = os.path.isfile(image_filename)
+    if IO_rootimage is not True:
+        raise ValueError('Binary root image not present in specified file location.  Please recheck input files.')
+    
     image = Image.open(image_filename)
     image = np.array(image)
     image = image > 0
@@ -93,10 +98,10 @@ def RP_distmap(parameters):
     
     
     #9. ID all soil pixels
-    if maxval == 'all':
-        pixelpos = np.where(soilmap == True)
-    else:
-        pixelpos = np.where((distmapvals < maxval) & (soilmap == True))
+    #if maxval == 'all':
+    #    pixelpos = np.where(soilmap == True)
+    #else:
+    pixelpos = np.where((distmapvals < maxval) & (soilmap == True))
     
     pixelpos_y = pixelpos[0]
     pixelpos_x = pixelpos[1]        

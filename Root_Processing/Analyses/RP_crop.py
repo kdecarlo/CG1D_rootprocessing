@@ -40,6 +40,10 @@ def RP_crop(parameters):
     image_filename = parameters['image_filename']
     output_filename = parameters['output_filename']
     cropmat = parameters['cropmat']
+    
+    IO_mask = os.path.isfile(image_filename)
+    if IO_mask is not True:
+        raise ValueError('mask file not found.  Please re-check input files.')
         
     mask = Image.open(image_filename)
     
@@ -55,7 +59,9 @@ def RP_crop(parameters):
         y = cropmat[0:2]
         x = cropmat[2:4]
     
-    mask = mask[int(imdim[0]-y[1]):int(imdim[0]-y[0]+1),int(x[0]):int(x[1]+1)]
+    
+    #mask = mask[int(imdim[0]-y[1]):int(imdim[0]-y[0]+1),int(x[0]):int(x[1]+1)]
+    mask = mask[int(y[0]):int(y[1]), int(x[0]):int(x[1])]
     mask = Image.fromarray(mask)
     mask.save(output_filename)
     

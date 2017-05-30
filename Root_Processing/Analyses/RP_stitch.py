@@ -14,6 +14,7 @@ import os
 from RP_timerstart import RP_timerstart
 from RP_timerprogress import RP_timerprogress
 from RP_timerend import RP_timerend
+from RP_IOfilecheck import RP_IOfilecheck
 
 def RP_stitch(parameters):
     '''
@@ -68,13 +69,13 @@ def RP_stitch(parameters):
        |      |
        | img2 |
      __|_____ |
-     | |____|_|    |   <---- dimh_vertoffset
+     | |____|_|    |   <---- dimh_horzoffset
      |      |
      | img3 |
      |______|
 
 
-             _   <----- dimh_horzoffset
+             _   <----- dimh_vertoffset
 
 
     SAMPLE INPUT:
@@ -129,7 +130,13 @@ def RP_stitch(parameters):
     #Read in OB/DF images
     OB_filename = image_filename+'/OB.'+imformat
     DF_filename = image_filename+'/DF.'+imformat
-    
+    IO_DF = os.path.isfile(DF_filename)
+    IO_OB = os.path.isfile(OB_filename)
+    if IO_DF is not True:
+        raise ValueError('Dark field image not present in file.')
+    if IO_OB is not True:
+        raise ValueError('Open beam image not present in file.')
+
     if imformat == 'fits':
         ##DF
         DF = fits.open(DF_filename)[0].data
@@ -143,7 +150,8 @@ def RP_stitch(parameters):
 
 
         
-    imdim = [2048, 2048]
+    imdim = np.shape(OB)
+    #[2048, 2048]
     #Read in images and stitch them into master image
     dimval = np.shape(stitch_order)
 
@@ -180,6 +188,9 @@ def RP_stitch(parameters):
         
         filename = image_fn+'%04d' %so
         filename = filename+'.'+imformat
+        IO_img = os.path.isfile(filename)
+        if IO_img is not True:
+            raise ValueError('One or more of the raw images specified in \'stitch_order\' is not present.  Please re-check raw images.')
         counter += 1
         #print(filename)
         if imformat == 'fits':

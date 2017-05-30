@@ -5,7 +5,7 @@ import scipy.ndimage as imp
 import datetime
 
 from scipy import ndimage
-#from skimage.morphology import skeletonize
+from skimage.morphology import skeletonize
 import scipy.misc
 from scipy.signal import medfilt
 from PIL import Image
@@ -17,7 +17,38 @@ import sys
 
 
 
-def RP_run(wd, analysis_list, parameters_ = 0, override = 0):
+def RP_run(wd, analysis_list = [], parameters_ = 0, override = 0):
+    '''
+    SUMMARY: 
+    'RP_run' takes in as input the image processing steps that the user is interested in and runs them.
+    
+    USING CODE:
+    'RP_run' is where the image processing algorithms (whose code and library are all located in the file 
+    specified by 'wd') of interest are specified by the user in the list 'analysis_list', and run.  If the
+    user is interested in specifying individual parameters for each algorithm, the 'parameters_' variable
+    allows the user to specify in dictionary format the specific parameters that the user would like to change
+    without manually changing them in the 'user_config.txt' file.  'override' is set to 1 if already existing 
+    outputted files can be overwritten with the new run.
+    
+    
+    PARAMETERS:
+    1. wd: the working directory where the 'Root_Processing' algorithm is stored.
+    2. analysis_list: a string list of the algorithms that the user wants to run, in order.
+    3. parameters_: specific parameters that the user may wish to modify outside of the 'user_config.txt' file.
+    4. override: flag for whether the user wants to override previously written files normally outputted by the
+    algorithm.
+    
+    '''
+    
+    
+    
+    if type(wd) is int or type(wd) is float:
+        raise ValueError('Working directory (wd) is inputted with a numerical value.  Please enter a valid directory.')
+
+    if type(wd) is str:
+        if not os.path.isdir(wd):
+            raise ValueError('Working directory (wd) does not exist.  Please enter a valid directory.')
+    
     
     sys.path.append(wd+'/Analyses')
     sys.path.append(wd+'/Misc')
@@ -38,7 +69,6 @@ def RP_run(wd, analysis_list, parameters_ = 0, override = 0):
     from RP_windowrange import RP_windowrange
     from RP_distwindowrange import RP_distwindowrange
     from RP_remove import RP_remove
-    from RP_topologyfilter import RP_topologyfilter
     from RP_rootimage import RP_rootimage
     
     '''
@@ -106,8 +136,7 @@ def RP_run(wd, analysis_list, parameters_ = 0, override = 0):
         'RP_distmap':[41,43],
         'RP_radwc':[46,51],
         'RP_thickness':[54,55],
-        'RP_topologyfilter':[58,60],
-        'RP_rootimage':[63,65]
+        'RP_rootimage':[58,60]
     }
     
     
@@ -129,9 +158,35 @@ def RP_run(wd, analysis_list, parameters_ = 0, override = 0):
         'RP_remove':RP_remove,
         'RP_distmap':RP_distmap,
         'RP_radwc':RP_radwc,
-        'RP_topologyfilter':RP_topologyfilter,
         'RP_rootimage':RP_rootimage
     }    
+    alist = ['RP_stitch', 'RP_crop', 'RP_wc', 'RP_mask', 'RP_imagefilter', 'RP_thickness', 'RP_remove', 
+            'RP_distmap', 'RP_radwc', 'RP_rootimage']
+    
+    if type(analysis_list) is not list:
+        raise ValueError('Analysis list must be in \'list\' format, not as a string.  Please put [] around the analysis terms.')
+    
+    
+    if type(override) is int or type(override) is float:
+        if override is not 1 and override is not 0:
+            raise ValueError('Override term is not given a valid value.  Please enter either 0 (no override) or 1 (override).')
+
+    if type(override) is str:
+        raise ValueError('Override term is not given a valid value.  Please enter either 0 (no override) or 1 (override).')
+    
+    if type(analysis_list) is int or type(analysis_list) is float:
+        #print('Analysis list is inputted with a numerical value.  Please enter a valid processing choice.')
+        raise ValueError('Analysis list is inputted with a numerical value.  Please enter a valid processing choice.')
+        
+    if type(analysis_list) is list:
+        counter = 0
+        for analysis in analysis_list:
+            if analysis in alist:
+                counter += 1
+        if counter == 0:
+            raise ValueError('Analysis list does not have a valid processing choice.  Please enter a correct processing choice.')
+    
+
     
     for analysis in analysis_list:
         analysis_pos = analysis_pos_list[analysis]
@@ -143,8 +198,8 @@ def RP_run(wd, analysis_list, parameters_ = 0, override = 0):
             I = parameters['image_filename']
             O = parameters['output_filename']
         elif analysis == 'RP_radwc':
-            I = parameters_['wc_filename'].rsplit('/',1)[0]
-            O = parameters_['output_filename']
+            I = parameters['wc_filename'].rsplit('/',1)[0]
+            O = parameters['output_filename']
         elif analysis == 'RP_rootimage':
             I = parameters['wc_filename'].rsplit('/',1)[0]
             O = parameters['output_filename'].rsplit('/',1)[0]
@@ -153,9 +208,11 @@ def RP_run(wd, analysis_list, parameters_ = 0, override = 0):
             O = parameters['output_filename'].rsplit('/',1)[0]
             
         IOcheck = dispatch['RP_IOfilecheck'](I, O)
-        
+                
         if not IOcheck == 10:
-            print(analysis+' either has no input files, or already has output files.  Skipping...')
+            if IOcheck == 0:
+                raise ValueError('No input file is present.  Please ensure that either you have your input files, or the user_config.txt file specified the correct input file directory locations.')
+            print(analysis+' already has output files.  Skipping...')
             if override == 1:
                 override_val = override*100+IOcheck
                 print('overriding skip...')
@@ -163,3 +220,6 @@ def RP_run(wd, analysis_list, parameters_ = 0, override = 0):
         else:
             dispatch[analysis](parameters)
     
+    if __name__ == "__main__":
+        import doctest
+        doctest.testmod()
