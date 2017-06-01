@@ -5,6 +5,7 @@ Getting Started: Stitch
 ************************
 
 **I. OVERVIEW**
+
 The 'RP_Stitch' analysis takes the raw images outputted from the CG-1D beamline and stitches the images together, as well as applying the necessary image corrections.
 
 **II. HOW TO USE**
