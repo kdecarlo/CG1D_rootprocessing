@@ -28,7 +28,7 @@ Essentially, this is the overlap between two horizontally adjacent images::
 
 5. dimv_vertoffset: this is the *vertical* offset value between two images in the *vertical* dimension.  
 
-Essentially, this is how much an image "drifts" downward with each table shift:
+Essentially, this is how much an image "drifts" downward with each table shift::
 
 .. image:: _static/dimv_vertoffset.jpg
 
@@ -40,7 +40,7 @@ Essentially, this is the overlap between two vertically adjacent images::
 
 7. dimh_vertoffset: this is the *vertical* offset value between two images in the *horizontal* dimension.  
 
-Essentially, this is how much an image "drifts" leftward between each table shift:
+Essentially, this is how much an image "drifts" leftward between each table shift::
 
 .. image:: _static/dimh_vertoffset.jpg
 
