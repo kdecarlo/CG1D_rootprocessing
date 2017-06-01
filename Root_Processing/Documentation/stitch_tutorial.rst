@@ -22,25 +22,25 @@ First, open the 'user_config' text file in your 'Root_Processing' directory.  Th
 
 4. dimv_horzoffset: this is the *horizontal* offset value (i.e. overlap) between two images in the *vertical* dimension.  
 
-Essentially, this is the overlap between two horizontally adjacent images::
+Essentially, this is the overlap between two horizontally adjacent images:
 
 .. image:: _static/dimv_horzoffset.jpg
 
 5. dimv_vertoffset: this is the *vertical* offset value between two images in the *vertical* dimension.  
 
-Essentially, this is how much an image "drifts" downward with each table shift::
+Essentially, this is how much an image "drifts" downward with each table shift:
 
 .. image:: _static/dimv_vertoffset.jpg
 
 6. dimh_horzoffset: this is the *horizontal* offset value between two images in the *horizontal* dimension.  
 
-Essentially, this is the overlap between two vertically adjacent images::
+Essentially, this is the overlap between two vertically adjacent images:
 
 .. image:: _static/dimh_horzoffset.jpg
 
 7. dimh_vertoffset: this is the *vertical* offset value between two images in the *horizontal* dimension.  
 
-Essentially, this is how much an image "drifts" leftward between each table shift::
+Essentially, this is how much an image "drifts" leftward between each table shift:
 
 .. image:: _static/dimh_vertoffset.jpg
 
