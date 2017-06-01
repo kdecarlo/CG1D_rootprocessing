@@ -37,5 +37,7 @@ Once this is complete, then simply run the module, and the outputted subdirector
 	
     RP_run(wd, analysis_list)
 
+Specific tutorials for each analysis will be outlined, using the sample dataset provided, so be sure to run that code when following through the guides.
+
 
 

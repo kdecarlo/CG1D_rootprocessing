@@ -41,6 +41,15 @@ assert o_calculate.angle_range == my_angle_range
     
     def test_incorrect_input(self):
         '''assert error when processing option not listed in code is given'''
-        bad_analysis_list = ['sitch']
-        self.assertRaises(ValueError, RP_run, wd, bad_analysis_list, 1)
+        bad_analysis_list_sp = ['sitch']
+        bad_analysis_list_str = 'RP_stitch'
+        bad_analysis_list_int = 4
+        self.assertRaises(ValueError, RP_run, wd, bad_analysis_list_sp 1)
+        self.assertRaises(ValueError, RP_run, wd, bad_analysis_list_str, 1)
+        self.assertRaises(ValueError, RP_run, wd, bad_analysis_list_int, 1)
+
+        
+    '''Make a a non-functioning image'''
+    '''Make an unreadable image'''
+    '''
         

@@ -172,8 +172,8 @@ def RP_stitch(parameters):
             if i+j==0:
                 counter += 1
                 continue
-            rowvals[counter] = rowvals[0]-i*(imdim[0]-dimh_vertoffset)+j*dimv_vertoffset
-            colvals[counter] = colvals[0]+j*(imdim[0]-dimv_horzoffset)-i*dimh_horzoffset
+            rowvals[counter] = rowvals[0]-i*(imdim[0]-dimh_horzoffset)+j*dimv_vertoffset
+            colvals[counter] = colvals[0]+j*(imdim[0]-dimv_horzoffset)-i*dimh_vertoffset
             counter += 1
 
     image = np.zeros([int(np.round((dimval[0]+0.5)*imdim[0])), int(np.round(((dimval[1]+0.5)*imdim[1])))])
