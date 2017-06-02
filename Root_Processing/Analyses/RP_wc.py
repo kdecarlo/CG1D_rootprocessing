@@ -75,7 +75,7 @@ def RP_wc(parameters):
 
     x_w = -C1 - np.sqrt(x)
     x_w[x_w == -C1] = 'nan'
-    x_w = x_w
+    x_w = x_w/x_s
     
     x_w = Image.fromarray(x_w)
     x_w.save(output_filename)

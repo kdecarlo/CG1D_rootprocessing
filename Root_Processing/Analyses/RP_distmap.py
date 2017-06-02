@@ -15,6 +15,7 @@ from RP_timerstart import RP_timerstart
 from RP_timerprogress import RP_timerprogress
 from RP_timerend import RP_timerend
 from RP_windowrange import RP_windowrange
+from RP_distwindowrange import RP_distwindowrange
 from RP_remove import RP_remove
 
 def RP_distmap(parameters):
@@ -150,24 +151,26 @@ def RP_distmap(parameters):
     
     for i in range(np.shape(pixelpos_y)[0]):
         [pctval,counter] = RP_timerprogress(counter,pctval,totalcount)
+        
+
 
         y = pixelpos_y[i]
         x = pixelpos_x[i]
-        
-        
+      
         distval = distmapvals[y,x]
         windowsize = 2*(np.floor(distval)+1)
 
         [y1,y2,x1,x2] = RP_windowrange(y,x,windowsize,imdim)
-
+        
+        [a,b,c,d,xc_,yc_] = RP_distwindowrange(y,x,windowsize,imdim)
 
         contour_w = contour_skel_map[y1:y2,x1:x2]
-
         contourpos_w = np.where(contour_w)
+
         contourpos_w_y = contourpos_w[0]
         contourpos_w_x = contourpos_w[1]
 
-        check = np.sqrt((contourpos_w_y-y)*(contourpos_w_y-y)+(contourpos_w_x-x)*(contourpos_w_x-x))
+        check = np.sqrt((contourpos_w_y-yc_)*(contourpos_w_y-yc_)+(contourpos_w_x-xc_)*(contourpos_w_x-xc_))
         minpos = np.where(check == check.min())
         yc = contourpos_w_y[minpos[0][0]]
         xc = contourpos_w_x[minpos[0][0]]

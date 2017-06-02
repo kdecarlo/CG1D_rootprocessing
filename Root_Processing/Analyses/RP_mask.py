@@ -20,7 +20,7 @@ from RP_windowrange import RP_windowrange
 def RP_mask(parameters):
     '''
     SUMMARY: 
-    'RP_mask': creates binary segmented image from specified image using a local thresholding 
+    'RP_mask': creates binary segmented image from specified image using a simple local thresholding 
     technique.  
     
     USING CODE:
