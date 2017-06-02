@@ -8,13 +8,12 @@ Getting Started: mask
 
 The 'RP_mask' analysis creates a binary segmented image from a specified image using a simple local thresholding technique.
 
-In this analysis, each pixel will have an associated window of pixels in all directions.  From this window, a mean pixel value will be calculated
+In this analysis, each pixel will have an associated window of pixels in all directions - from this, a mean value will be calculated and compared with the pixel of interest.  If the pixel is less than the mean value by a set value 'threshold' (\alpha in figure 1), then the pixel will be labeled as TRUE and assigned as a mask pixel.  If a pixel does not meet this condition but has a pixel value lower than a global threshold 'globthresh' (\alpha_global in figure 1), then the pixel will be assigned as a mask pixel.
 
-.. figure:: _static/maskval.jpg
-   :scale: 100 %
-   :alt: Outline of analysis for three different pixels.  
+
+.. image:: _static/maskval.jpg
    
-   Following values
+   *Figure 1: Analysis procedure for three different pixels.*
 
 **II. HOW TO USE**
 
@@ -24,25 +23,12 @@ First, open the 'user_config' text file in your 'Root_Processing' directory.  Th
 
 2. output_filename: this is the full image filename (including directory) where the image is to be saved.  If the directory is not present, the analysis will automatically make the directory.  
 
-3. windowsize: this is the size of the window
+3. windowsize: this is the size of the window to be analyzed.
 
+4. threshold: this is the minimum threshold against which the image-mean value difference will be evaluated.
 
-3. b_w: scattering coefficient of water [cm^-2]
-
-4. s_w: attenuation coefficient of water [cm^-2]
-
-5. s_a: attenuation coefficient of aluminum [cm^-1]
-
-6. s_s: attenuation coefficient of silicon [cm^-1]
-
-7. x_s: thickness of soil [cm].  This is the thickness of the soil in the neutron beam direction.
-
-8. x_a: thickness of aluminum [cm]. This is the thickness of the aluminum plates (in total, so both plates) in the neutron beam direction.
+5. globthresh: this is a global threshold value - if the pixel of interest has a value lower than this, then the pixel will be assigned as a mask pixel.  This is to avoid an 'outline' effect where the center of objects with a size larger than the window will not be mislabeled due to homogenously dark pixel regions (see T 3 in figure 1).
 
 **III. RUNNING THE CODE**
 
-This analysis can be conducted using the ['RP_wc'] string in the 'RP_run' module.  
-
----------------
-
-.. [1] Kang, M et al., "Water calibration measurements for neutron radiography: Application to water content quantification in porous media." Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment 708 (2013):24-31.
+This analysis can be conducted using the ['RP_mask'] string in the 'RP_run' module.  
