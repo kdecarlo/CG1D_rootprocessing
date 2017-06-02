@@ -8,7 +8,7 @@ Getting Started: wc
 
 The 'RP_wc' analysis creates a water thickness map from the specified image using equations outlined in Kang et al., 2013 [1]_.  This analysis assumes that the images are in a quasi-2D (i.e. thin plate) form, with soil held together by two aluminum plates.  
 
-Volumetric water content is defined as :math:`\theta = \\frac{V_w}{V_w_e_t}`
+Volumetric water content is defined as :math:`V_w`
 
 Output image must be a neutron transmission image, and the output image will show the thickness of water present in each pixel.
 
