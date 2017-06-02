@@ -6,7 +6,7 @@ Getting Started: wc
 
 **I. OVERVIEW**
 
-The 'RP_wc' analysis creates a water content map from the specified image using equations outlined in :download:'Kang et al., 2013 <_doc/Kang_2013.pdf>'
+The 'RP_wc' analysis creates a water content map from the specified image using equations outlined in :download:`Kang et al., 2013 <_doc/Kang_2013.pdf>`
 
 
 crops an inputted image.  While it can be used in any context, we suggest using it immediately after the 'RP_stitch' analysis to remove any residual blank space left as artifacts from its analysis.
