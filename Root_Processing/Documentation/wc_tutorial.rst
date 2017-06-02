@@ -10,6 +10,10 @@ The 'RP_wc' analysis creates a water thickness map from the specified image usin
 
 Volumetric water content is defined as :math:`V_w`
 
+.. math:: e^{i\pi} + 1 = 0
+
+.. math:: \theta = {V_w}
+
 Output image must be a neutron transmission image, and the output image will show the thickness of water present in each pixel.
 
 
