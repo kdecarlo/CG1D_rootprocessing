@@ -6,9 +6,9 @@ Getting Started: wc
 
 **I. OVERVIEW**
 
-The 'RP_wc' analysis creates a water content map from the specified image using equations outlined in Kang et al., [2013]_.
+The 'RP_wc' analysis creates a water content map from the specified image using equations outlined in [`Kang et al., 2013`]_.
 
-.. [2013] Kang, M et al., "Water calibration measurements for neutron radiography: Application to water content quantification in porous media." Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment 708 (2013):24-31.
+
 
 Full citation: 
 
@@ -31,3 +31,7 @@ First, open the 'user_config' text file in your 'Root_Processing' directory.  Th
 **III. RUNNING THE CODE**
 
 This analysis can be conducted using the ['RP_crop'] string in the 'RP_run' module.  
+
+---------------
+
+.. [`Kang et al., 2013`] Kang, M et al., "Water calibration measurements for neutron radiography: Application to water content quantification in porous media." Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment 708 (2013):24-31.
