@@ -13,7 +13,7 @@ In this analysis, each pixel will have an associated window of pixels in all dir
 
 .. image:: _static/maskval.jpg
    
-   *Figure 1: Analysis procedure for three different pixels.*
+*Figure 1: Analysis procedure for three different pixels.*
 
 **II. HOW TO USE**
 
