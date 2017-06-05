@@ -11,7 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   :ref:`intro`
+   intro
    tutorial
    tutorial_stitch
    tutorial_crop
@@ -32,4 +32,5 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+* :ref:`intro`
 
