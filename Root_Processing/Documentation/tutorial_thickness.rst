@@ -17,7 +17,7 @@ From here, for every pixel [x, y]_p, the following are calculated:
     - (3): L_MP - distance from [x, y]_m to [x, y]_p
     - (4): L_EP - distance from [x, y]_e to [x, y]_p
 
-.. image:: _static/thickness_map.tif
+.. image:: _static/thickness_map.png
 
 *Outline of the individual components in the thickness analysis.*
 
@@ -25,7 +25,7 @@ We assume that L_MP and L_EP are on an equal plane, thereby making R = L_MP + L_
 
 .. math:: H^2 = R^2 - (R- L_EP)^2
 
-.. image:: _static/thickness_final.tif
+.. image:: _static/thickness_final.png
    
 *Final product of the thickness analysis, with a 3D surface image of a selected area.  Note that the surface image is not 3D due to different scaling between the z and xy axis.*
 

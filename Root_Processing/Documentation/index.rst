@@ -11,8 +11,17 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   intro
+   :ref:`intro`
    tutorial
+   tutorial_stitch
+   tutorial_crop
+   tutorial_wc
+   tutorial_mask
+   tutorial_imagefilter
+   tutorial_distmap
+   tutorial_radwc
+   tutorial_thickness
+   tutorial_rootimage
    ...
 
 
