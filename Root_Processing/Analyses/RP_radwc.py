@@ -124,3 +124,5 @@ def RP_radwc(parameters):
     np.savetxt(output_filename+'/'+fileformat+'_data_num_xrad_ydist_wc.txt', data_num)
     np.savetxt(output_filename+'/'+fileformat+'_data_radrange.txt', radrange[1:np.shape(radrange)[0]])
     np.savetxt(output_filename+'/'+fileformat+'_data_distrange.txt', newdistrange)
+    
+    RP_timerend(starttime)

@@ -37,6 +37,12 @@ def RP_crop(parameters):
     output_filename = wd_filename+'/morph_mask_crop/'+ctype+'_stitched_crop.fits'
     cropmat = [96,2848,1248,6384]
     '''
+    
+    starttime = time.time()
+    scriptname = 'crop'
+    RP_timerstart(scriptname)
+
+    
     image_filename = parameters['image_filename']
     output_filename = parameters['output_filename']
     cropmat = parameters['cropmat']
@@ -65,5 +71,6 @@ def RP_crop(parameters):
     mask = Image.fromarray(mask)
     mask.save(output_filename)
     
+    RP_timerend(starttime)
     
     #scipy.misc.imsave(output_filename, mask)

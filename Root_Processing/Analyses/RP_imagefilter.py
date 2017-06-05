@@ -43,6 +43,11 @@ def RP_imagefilter(parameters):
     medfilterval = 5
     
     '''
+    
+    starttime = time.time()
+    scriptname = 'imagefilter'
+    RP_timerstart(scriptname)
+
     image_filename = parameters['image_filename']
     output_filename = parameters['output_filename']
     bwareaval = parameters['bwareaval']
@@ -90,6 +95,7 @@ def RP_imagefilter(parameters):
     img = Image.fromarray(img)
     img.save(output_filename)
     
+    RP_timerend(starttime)
 
     #imghdu = fits.PrimaryHDU(img)
     #hdulist = fits.HDUList([imghdu])

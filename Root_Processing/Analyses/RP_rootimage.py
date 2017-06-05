@@ -29,6 +29,11 @@ def RP_rootimage(parameters):
     3. output_filename: filename where image is to be saved.
     
     '''
+    starttime = time.time()
+    scriptname = 'rootimage'
+    
+    RP_timerstart(scriptname)
+    
     wc_filename = parameters['wc_filename']
     mask_filename = parameters['mask_filename']
     output_filename = parameters['output_filename']
@@ -45,4 +50,5 @@ def RP_rootimage(parameters):
 
     wcimage.save(output_filename)
     
+    RP_timerend(starttime)
    

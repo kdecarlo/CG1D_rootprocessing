@@ -44,6 +44,9 @@ def RP_userconfiganalysis(wd, analysis_pos, analysis):
             if analysis == 'RP_radwc':
                 if checkline != '7. RADWC\n':
                     errorflag = 1
+            if analysis == 'RP_thickness':
+                if checkline != '8. THICKNESS\n':
+                    errorflag = 1
             if analysis == 'RP_rootimage':
                 if checkline != '9. ROOTIMAGE\n':
                     errorflag = 1
