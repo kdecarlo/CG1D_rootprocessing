@@ -57,6 +57,10 @@ def RP_crop(parameters):
     
     imdim = np.shape(mask)
     
+    if (cropmat[0] > imdim[0]) or (cropmat[1] > imdim[0]) or (cropmat[2] > imdim[1]) or (cropmat[3] > imdim[1]):
+        raise ValueError('Crop values exceed image size.  Please re-check values in user_config file.')
+        
+    
     if np.sum(cropmat) == 0:
         cropmat = [0, imdim[0], 0, imdim[1]]
         y = cropmat[0:2]

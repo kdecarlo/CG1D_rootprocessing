@@ -68,6 +68,13 @@ def RP_radwc(parameters):
     fileformat = parameters['fileformat']
     pixelbin = parameters['pixelbin']
     
+    IO_rootimage_wc = os.path.isfile(wc_filename)
+    IO_rootimage_distmap = os.path.isfile(distmap_filename)
+    IO_rootimage_mask = os.path.isfile(mask_filename)
+    if (IO_rootimage_wc is not True) or (IO_rootimage_distmap is not True) or (IO_rootimage_mask is not True):
+        raise ValueError('Input files are not present in specified file location.  Please recheck input files.')
+    
+    
     #image_wc = fits.open(wc_filename)[0].data
     #image_distmap = fits.open(distmap_filename)[0].data
     #image_mask = fits.open(mask_filename)[0].data

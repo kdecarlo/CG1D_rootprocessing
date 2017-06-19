@@ -42,12 +42,12 @@ def RP_run(wd, analysis_list = [], parameters_ = 0, override = 0):
     
     
     
-    if type(wd) is int or type(wd) is float:
-        raise ValueError('Working directory (wd) is inputted with a numerical value.  Please enter a valid directory.')
+    #if type(wd) is int or type(wd) is float:
+    #    raise ValueError('Working directory (wd) is inputted with a numerical value.  Please enter a valid directory.')
 
-    if type(wd) is str:
-        if not os.path.isdir(wd):
-            raise ValueError('Working directory (wd) does not exist.  Please enter a valid directory.')
+    #if type(wd) is str:
+    #    if not os.path.isdir(wd):
+    #        raise ValueError('Working directory (wd) does not exist.  Please enter a valid directory.')
     
     
     sys.path.append(wd+'/Analyses')

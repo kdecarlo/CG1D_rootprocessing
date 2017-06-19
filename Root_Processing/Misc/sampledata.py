@@ -12,16 +12,22 @@ from PIL import Image
 import os
 
 
-def sampledata(wd):
+def sampledata(wd, unittest = 0):
     '''
-    'sampleimages' generates a suite of images: a sample spiral image, a 'raw' version of the reference image divided into 6 individual images, and a sample dark field and open beam image.  This also creates a sample 'user_config' text file to analyze this dummy data.
+    'sampleimages' generates a suite of images: a sample spiral image, a 'raw' version of the reference image divided into 6 individual images, and a sample dark field and open beam image.  This also creates a sample 'user_config' text file to analyze this dummy data.  Set 'unittest' to 1 if using this for a unit test.
     '''
-    
+        
     #Create the 'user_config' data file
     f = open(wd+'/user_config.txt', 'w')
+    
+    if unittest == 1:
+        unittest_str = 'Sample_Data_unittest'
+    else:
+        unittest_str = 'Sample_Data'
+        
     f.write('1. STITCH\n')
-    f.write('image_filename:'+wd+'/Sample_Data/raw\n')
-    f.write('output_filename:'+wd+'/Sample_Data/stitched\n')
+    f.write('image_filename:'+wd+'/'+unittest_str+'/raw\n')
+    f.write('output_filename:'+wd+'/'+unittest_str+'/stitched\n')
     f.write('output_fileformat:SampleImg\n')
     f.write('fileformat:19000101_Image_0060\n')
     f.write('dimv_horzoffset:20\n')
@@ -31,13 +37,13 @@ def sampledata(wd):
     f.write('stitch_order:2,3,3,2,1,6,5,4\n')
     f.write('\n')
     f.write('2. CROP\n')
-    f.write('image_filename:'+wd+'/Sample_Data/stitched/SampleImg_stitched.tiff\n')
-    f.write('output_filename:'+wd+'/Sample_Data/crop/SampleImg_crop.tiff\n')
+    f.write('image_filename:'+wd+'/'+unittest_str+'/stitched/SampleImg_stitched.tiff\n')
+    f.write('output_filename:'+wd+'/'+unittest_str+'/crop/SampleImg_crop.tiff\n')
     f.write('cropmat:21,472,183,633\n')
     f.write('\n')
     f.write('3. WC\n')
-    f.write('image_filename:'+wd+'/Sample_Data/crop/SampleImg_crop.tiff\n')
-    f.write('output_filename:'+wd+'/Sample_Data/wc/SampleImg_wc.tiff\n')
+    f.write('image_filename:'+wd+'/'+unittest_str+'/crop/SampleImg_crop.tiff\n')
+    f.write('output_filename:'+wd+'/'+unittest_str+'/wc/SampleImg_wc.tiff\n')
     f.write('b_w:-2.14\n')
     f.write('s_w:5.3\n')
     f.write('s_a:0.02015\n')
@@ -46,39 +52,39 @@ def sampledata(wd):
     f.write('x_a:0.2\n')
     f.write('\n')
     f.write('4. MASK\n')
-    f.write('image_filename:'+wd+'/Sample_Data/crop/SampleImg_crop.tiff\n')
-    f.write('output_filename:'+wd+'/Sample_Data/mask/SampleImg_mask.tiff\n')
+    f.write('image_filename:'+wd+'/'+unittest_str+'/crop/SampleImg_crop.tiff\n')
+    f.write('output_filename:'+wd+'/'+unittest_str+'/mask/SampleImg_mask.tiff\n')
     f.write('windowsize:11\n')
     f.write('threshold:0.05\n')
     f.write('globthresh:0.3\n')
     f.write('\n')
     f.write('5. IMAGEFILTER\n')
-    f.write('image_filename:'+wd+'/Sample_Data/mask/SampleImg_mask.tiff\n')
-    f.write('output_filename:'+wd+'/Sample_Data/mask_filter/SampleImg_filter.tiff\n')
+    f.write('image_filename:'+wd+'/'+unittest_str+'/mask/SampleImg_mask.tiff\n')
+    f.write('output_filename:'+wd+'/'+unittest_str+'/mask_filter/SampleImg_filter.tiff\n')
     f.write('bwareaval:800\n')
     f.write('medfilterval:5\n')
     f.write('\n')
     f.write('6. DISTMAP\n')
-    f.write('image_filename:'+wd+'/Sample_Data/mask_filter/SampleImg_filter.tiff\n')
-    f.write('output_filename:'+wd+'/Sample_Data/distmap/SampleImg_distmap.tiff\n')
+    f.write('image_filename:'+wd+'/'+unittest_str+'/mask_filter/SampleImg_filter.tiff\n')
+    f.write('output_filename:'+wd+'/'+unittest_str+'/distmap/SampleImg_distmap.tiff\n')
     f.write('maxval:400\n')
     f.write('\n')
     f.write('7. RADWC\n')
-    f.write('wc_filename:'+wd+'/Sample_Data/wc/SampleImg_wc.tiff\n')
-    f.write('distmap_filename:'+wd+'/Sample_Data/distmap/SampleImg_distmap.tiff\n')
-    f.write('mask_filename:'+wd+'/Sample_Data/mask/SampleImg_mask.tiff\n')
-    f.write('output_filename:'+wd+'/Sample_Data/radwc/SampleImg\n')
+    f.write('wc_filename:'+wd+'/'+unittest_str+'/wc/SampleImg_wc.tiff\n')
+    f.write('distmap_filename:'+wd+'/'+unittest_str+'/distmap/SampleImg_distmap.tiff\n')
+    f.write('mask_filename:'+wd+'/'+unittest_str+'/mask/SampleImg_mask.tiff\n')
+    f.write('output_filename:'+wd+'/'+unittest_str+'/radwc/SampleImg\n')
     f.write('fileformat:SampleImg\n')
     f.write('pixelbin:1\n')
     f.write('\n')
     f.write('8. THICKNESS\n')
-    f.write('image_filename:'+wd+'/Sample_Data/mask_filter/SampleImg_filter.tiff\n')
-    f.write('output_filename:'+wd+'/Sample_Data/thickness/SampleImg_thickness.tiff\n')
+    f.write('image_filename:'+wd+'/'+unittest_str+'/mask_filter/SampleImg_filter.tiff\n')
+    f.write('output_filename:'+wd+'/'+unittest_str+'/thickness/SampleImg_thickness.tiff\n')
     f.write('\n')
     f.write('9. ROOTIMAGE\n')
-    f.write('wc_filename:'+wd+'/Sample_Data/wc/SampleImg_wc.tiff\n')
-    f.write('mask_filename:'+wd+'/Sample_Data/mask_filter/SampleImg_filter.tiff\n')
-    f.write('output_filename:'+wd+'/Sample_Data/rootimage/SampleImg_rootimage.tiff\n')
+    f.write('wc_filename:'+wd+'/'+unitest_str+'/wc/SampleImg_wc.tiff\n')
+    f.write('mask_filename:'+wd+'/'+unittest_str+'/mask_filter/SampleImg_filter.tiff\n')
+    f.write('output_filename:'+wd+'/'+unittest_str+'/rootimage/SampleImg_rootimage.tiff\n')
     f.close()
   
     #Create the dummy data
@@ -172,17 +178,17 @@ def sampledata(wd):
     OB = Image.fromarray(OB)
     DF = Image.fromarray(DF)
 
-    if not os.path.isdir(wd+'/Sample_Data/raw'):
-        os.makedirs(wd+'/Sample_Data/raw')
-    img.save(wd+'/Sample_Data/raw/19000101_Image_0060_reference.tiff')
-    img1.save(wd+'/Sample_Data/raw/19000101_Image_0060_0001.tiff')
-    img2.save(wd+'/Sample_Data/raw/19000101_Image_0060_0002.tiff')
-    img3.save(wd+'/Sample_Data/raw/19000101_Image_0060_0003.tiff')
-    img4.save(wd+'/Sample_Data/raw/19000101_Image_0060_0004.tiff')
-    img5.save(wd+'/Sample_Data/raw/19000101_Image_0060_0005.tiff')
-    img6.save(wd+'/Sample_Data/raw/19000101_Image_0060_0006.tiff')
-    OB.save(wd+'/Sample_Data/raw/OB.tiff')
-    DF.save(wd+'/Sample_Data/raw/DF.tiff')
+    if not os.path.isdir(wd+'/'+unittest_str+'/raw'):
+        os.makedirs(wd+'/'+unittest_str+'/raw')
+    img.save(wd+'/'+unittest_str+'/raw/19000101_Image_0060_reference.tiff')
+    img1.save(wd+'/'+unittest_str+'/raw/19000101_Image_0060_0001.tiff')
+    img2.save(wd+'/'+unittest_str+'/raw/19000101_Image_0060_0002.tiff')
+    img3.save(wd+'/'+unittest_str+'/raw/19000101_Image_0060_0003.tiff')
+    img4.save(wd+'/'+unittest_str+'/raw/19000101_Image_0060_0004.tiff')
+    img5.save(wd+'/'+unittest_str+'/raw/19000101_Image_0060_0005.tiff')
+    img6.save(wd+'/'+unittest_str+'/raw/19000101_Image_0060_0006.tiff')
+    OB.save(wd+'/'+unittest_str+'/raw/OB.tiff')
+    DF.save(wd+'/'+unittest_str+'/raw/DF.tiff')
 
 
 

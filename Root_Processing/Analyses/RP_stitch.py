@@ -151,6 +151,10 @@ def RP_stitch(parameters):
 
         
     imdim = np.shape(OB)
+    imdim_OB = imdim
+    imdim_DF = np.shape(DF)
+    if imdim_OB != imdim_DF:
+        raise ValueError('Open beam and dark field images are not the same size.  Please re-check files.')
     #[2048, 2048]
     #Read in images and stitch them into master image
     dimval = np.shape(stitch_order)
@@ -177,7 +181,6 @@ def RP_stitch(parameters):
             counter += 1
 
     image = np.zeros([int(np.round((dimval[0]+0.5)*imdim[0])), int(np.round(((dimval[1]+0.5)*imdim[1])))])
-    np.shape(image)
     counter = 1
             
     for i in range(0,dimval[0]*dimval[1]):
@@ -192,12 +195,18 @@ def RP_stitch(parameters):
         if IO_img is not True:
             raise ValueError('One or more of the raw images specified in \'stitch_order\' is not present.  Please re-check raw images.')
         counter += 1
+        
+        
         #print(filename)
         if imformat == 'fits':
             img = fits.open(filename)[0].data-DF
         elif imformat == 'tiff':
             img = Image.open(filename)
             img = np.flipud(img)
+            imdim_indcheck = np.shape(img)
+            if imdim_indcheck != imdim_OB:
+                raise ValueError('Raw image size is inconsistent.  Please re-check individual files.')
+            img = img - DF    
         img = np.divide(img, OB)
         image[int(rowvals[i]):int(rowvals[i]+imdim[0]),int(colvals[i]):int(colvals[i]+imdim[1])] = img
 

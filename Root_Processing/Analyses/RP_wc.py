@@ -50,6 +50,11 @@ def RP_wc(parameters):
     RP_timerstart(scriptname)
     
     image_filename = parameters['image_filename']
+    
+    IO_mask = os.path.isfile(image_filename)
+    if IO_mask is not True:
+        raise ValueError('mask file not found.  Please re-check input files.')
+        
     output_filename = parameters['output_filename']
     b_w = parameters['b_w']
     s_w = parameters['s_w']
@@ -62,11 +67,16 @@ def RP_wc(parameters):
     image = Image.open(image_filename)
     image = np.array(image)    
     
+    checkval = np.sum(image == 0)
+    if np.sum(image == 0) > 0:
+        
+    
     #Conversion from transmission data to water thickness [see Kang et al., 2013]
     C1 = s_w/(2*b_w)
     C2_s = s_a*x_s+s_s*x_s
 
     image[image == 0] = 'nan'
+    image[image < 0] = 'nan'
     x = C1*C1-(np.log(image)-C2_s)/b_w
     maskneg = np.isnan(x)
     np.shape(maskneg)

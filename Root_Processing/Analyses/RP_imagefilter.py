@@ -53,6 +53,10 @@ def RP_imagefilter(parameters):
     bwareaval = parameters['bwareaval']
     medfilterval = parameters['medfilterval']
     
+    IO_mask = os.path.isfile(image_filename)
+    if IO_mask is not True:
+        raise ValueError('mask file not found.  Please re-check input files.')
+        
     
     #image = fits.open(image_filename)[0].data
     image = Image.open(image_filename)
@@ -64,6 +68,9 @@ def RP_imagefilter(parameters):
     img = image > 0
     mask_L = ndimage.measurements.label(img)
     mask_label = mask_L[0]
+    
+    
+        
     
     #List of all labeled values
     labelcount = np.asarray(range(0,mask_L[1]+1))

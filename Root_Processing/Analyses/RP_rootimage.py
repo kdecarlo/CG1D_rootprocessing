@@ -37,6 +37,12 @@ def RP_rootimage(parameters):
     wc_filename = parameters['wc_filename']
     mask_filename = parameters['mask_filename']
     output_filename = parameters['output_filename']
+    
+    IO_rootimage_wc = os.path.isfile(wc_filename)
+    IO_rootimage_mask = os.path.isfile(mask_filename)
+    if (IO_rootimage_wc is not True) or (IO_rootimage_mask is not True):
+        raise ValueError('Input files are not present in specified file location.  Please recheck input files.')
+    
         
     wcimage = Image.open(wc_filename)    
     mask = Image.open(mask_filename)

@@ -65,8 +65,11 @@ def RP_mask(parameters):
     windowsize = parameters['windowsize']
     threshold = parameters['threshold']
     globthresh = parameters['globthresh']
-                               
     
+    IO_mask = os.path.isfile(image_filename)
+    if IO_mask is not True:
+        raise ValueError('Crop file not found.  Please re-check input files.')    
+        
     #image = fits.open(image_filename)[0].data
     image = Image.open(image_filename)
     image = np.array(image)
@@ -78,6 +81,9 @@ def RP_mask(parameters):
     counter = 0
     pctval = 0
     totalcount = imdim[0]*imdim[1]
+    
+    if (windowsize > imdim[0]) or (windowsize > imdim[1]):
+        raise ValueError('Image is too small - analysis window size exceeds image dimensions.')
 
     
     for i in range(0,imdim[0]):

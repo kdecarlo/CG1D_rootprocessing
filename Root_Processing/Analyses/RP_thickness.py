@@ -52,6 +52,11 @@ def RP_thickness(parameters):
     
     image_filename = parameters['image_filename']
     output_filename = parameters['output_filename']
+    
+    IO_rootimage = os.path.isfile(image_filename)
+    if IO_rootimage is not True:
+        raise ValueError('Input files are not present in specified file location.  Please recheck input files.')
+    
 
     RP_timerstart(scriptname)
 

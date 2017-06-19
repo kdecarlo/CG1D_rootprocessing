@@ -65,6 +65,9 @@ def RP_distmap(parameters):
     image = np.array(image)
     image = image > 0
     
+    if np.sum(image) == 0:
+        raise ValueError('No masked objects present in image, and thus, no analysis can be done.')
+    
     #1. Find edge/contour of roots
     contour_img = RP_remove(image)
     
