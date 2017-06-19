@@ -142,6 +142,8 @@ class TestClass(unittest.TestCase):
         #mask image not found
         self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
         
+        shutil.rmtree(wd+'/Sample_Data_unittest') 
+        
     def test_distmap(self):
         wd = self.data_path
         
@@ -161,6 +163,8 @@ class TestClass(unittest.TestCase):
         bad_image.save(wd+'/Sample_Data_unittest/mask_filter/SampleImg_filter.tiff')
         
         self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+        
+        shutil.rmtree(wd+'/Sample_Data_unittest') 
 
     def test_radwc(self):
         wd = self.data_path
@@ -177,7 +181,7 @@ class TestClass(unittest.TestCase):
         #wc, distmap, mask images not found
         self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
         
-        
+        shutil.rmtree(wd+'/Sample_Data_unittest')         
     
     def test_thickness(self):
         wd = self.data_path
@@ -191,7 +195,9 @@ class TestClass(unittest.TestCase):
         
         #mask image not found
         self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
-    
+
+        shutil.rmtree(wd+'/Sample_Data_unittest') 
+        
     def test_rootimage(self):
         
         wd = self.data_path
@@ -206,7 +212,10 @@ class TestClass(unittest.TestCase):
         
         #wc, mask images not found
         self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+                
+        shutil.rmtree(wd+'/Sample_Data_unittest')
         
+
         
 
     
