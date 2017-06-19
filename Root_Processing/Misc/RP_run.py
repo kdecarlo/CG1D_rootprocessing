@@ -17,7 +17,7 @@ import sys
 
 
 
-def RP_run(wd, analysis_list = [], parameters_ = 0, override = 0):
+def RP_run(wd, wd_userconfig = '', analysis_list = [], parameters_ = 0, override = 0):
     '''
     SUMMARY: 
     'RP_run' takes in as input the image processing steps that the user is interested in and runs them.
@@ -190,7 +190,10 @@ def RP_run(wd, analysis_list = [], parameters_ = 0, override = 0):
     
     for analysis in analysis_list:
         analysis_pos = analysis_pos_list[analysis]
-        parameters = RP_userconfiganalysis(wd, analysis_pos, analysis)
+        if wd_userconfig == '':
+            parameters = RP_userconfiganalysis(wd, analysis_pos, analysis)
+        else:
+            parameters = RP_userconfiganalysis(wd_userconfig, analysis_pos, analysis)
         if not parameters_ == 0:
             parameters = {**parameters, **parameters_}
             

@@ -17,13 +17,15 @@ def sampledata(wd, unittest = 0):
     'sampleimages' generates a suite of images: a sample spiral image, a 'raw' version of the reference image divided into 6 individual images, and a sample dark field and open beam image.  This also creates a sample 'user_config' text file to analyze this dummy data.  Set 'unittest' to 1 if using this for a unit test.
     '''
         
-    #Create the 'user_config' data file
-    f = open(wd+'/user_config.txt', 'w')
-    
+    #Create the 'user_config' data file    
     if unittest == 1:
         unittest_str = 'Sample_Data_unittest'
     else:
         unittest_str = 'Sample_Data'
+    if not os.path.isdir(wd+'/'+unittest_str+'/raw'):
+        os.makedirs(wd+'/'+unittest_str+'/raw')
+    f = open(wd+'/'+unittest_str+'/user_config.txt', 'w')
+    
         
     f.write('1. STITCH\n')
     f.write('image_filename:'+wd+'/'+unittest_str+'/raw\n')
@@ -82,7 +84,7 @@ def sampledata(wd, unittest = 0):
     f.write('output_filename:'+wd+'/'+unittest_str+'/thickness/SampleImg_thickness.tiff\n')
     f.write('\n')
     f.write('9. ROOTIMAGE\n')
-    f.write('wc_filename:'+wd+'/'+unitest_str+'/wc/SampleImg_wc.tiff\n')
+    f.write('wc_filename:'+wd+'/'+unittest_str+'/wc/SampleImg_wc.tiff\n')
     f.write('mask_filename:'+wd+'/'+unittest_str+'/mask_filter/SampleImg_filter.tiff\n')
     f.write('output_filename:'+wd+'/'+unittest_str+'/rootimage/SampleImg_rootimage.tiff\n')
     f.close()
@@ -105,19 +107,22 @@ def sampledata(wd, unittest = 0):
     noiseimg = np.random.normal(mu, sigma, [500, 500])*40
     noiseimg[noiseimg < -49] = 0
     noiseimg[noiseimg > 50] = 0
-    img = noiseimg+img
+    if unittest != 1:
+        img = noiseimg+img
 
     DF = np.zeros([250, 250])
     noiseimg_DF = np.random.normal(mu, sigma, [250, 250])*5
     noiseimg_DF[noiseimg_DF < 0] = 0
     noiseimg_DF[noiseimg_DF > 250] = 0
-    DF = DF+noiseimg_DF
+    if unittest != 1:
+        DF = DF+noiseimg_DF
 
     OB = np.ones([250, 250])*240
     noiseimg_OB = np.random.normal(mu, sigma, [250, 250])
     noiseimg_OB[noiseimg_OB > 10] = 0
     noiseimg_OB[noiseimg_OB < 230] = 0
-    OB = OB+noiseimg_OB
+    if unittest != 1:
+        OB = OB+noiseimg_OB
 
     img1 = np.ones([250, 250])*200
     img2 = np.ones([250, 250])*200
@@ -129,27 +134,33 @@ def sampledata(wd, unittest = 0):
     noiseimg_indv = np.random.normal(mu, sigma, [250, 250])*40
     noiseimg_indv[noiseimg_indv < -49] = 0
     noiseimg_indv[noiseimg_indv > 50] = 0
-    img1 = img1+noiseimg_indv
+    if unittest != 1:
+        img1 = img1+noiseimg_indv
     noiseimg_indv = np.random.normal(mu, sigma, [250, 250])*40
     noiseimg_indv[noiseimg_indv < -49] = 0
     noiseimg_indv[noiseimg_indv > 50] = 0
-    img2 = img2+noiseimg_indv
+    if unittest != 1:
+        img2 = img2+noiseimg_indv
     noiseimg_indv = np.random.normal(mu, sigma, [250, 250])*40
     noiseimg_indv[noiseimg_indv < -49] = 0
     noiseimg_indv[noiseimg_indv > 50] = 0
-    img3 = img3+noiseimg_indv
+    if unittest != 1:
+        img3 = img3+noiseimg_indv
     noiseimg_indv = np.random.normal(mu, sigma, [250, 250])*40
     noiseimg_indv[noiseimg_indv < -49] = 0
     noiseimg_indv[noiseimg_indv > 50] = 0
-    img4 = img4+noiseimg_indv
+    if unittest != 1:
+        img4 = img4+noiseimg_indv
     noiseimg_indv = np.random.normal(mu, sigma, [250, 250])*40
     noiseimg_indv[noiseimg_indv < -49] = 0
     noiseimg_indv[noiseimg_indv > 50] = 0
-    img5 = img5+noiseimg_indv
+    if unittest != 1:
+        img5 = img5+noiseimg_indv
     noiseimg_indv = np.random.normal(mu, sigma, [250, 250])*40
     noiseimg_indv[noiseimg_indv < -49] = 0
     noiseimg_indv[noiseimg_indv > 50] = 0
-    img6 = img6+noiseimg_indv
+    if unittest != 1:
+        img6 = img6+noiseimg_indv
 
     v_v = 10
     v_h = 20
@@ -178,8 +189,7 @@ def sampledata(wd, unittest = 0):
     OB = Image.fromarray(OB)
     DF = Image.fromarray(DF)
 
-    if not os.path.isdir(wd+'/'+unittest_str+'/raw'):
-        os.makedirs(wd+'/'+unittest_str+'/raw')
+
     img.save(wd+'/'+unittest_str+'/raw/19000101_Image_0060_reference.tiff')
     img1.save(wd+'/'+unittest_str+'/raw/19000101_Image_0060_0001.tiff')
     img2.save(wd+'/'+unittest_str+'/raw/19000101_Image_0060_0002.tiff')

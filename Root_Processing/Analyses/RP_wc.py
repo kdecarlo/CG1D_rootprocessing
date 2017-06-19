@@ -69,6 +69,7 @@ def RP_wc(parameters):
     
     checkval = np.sum(image == 0)
     if np.sum(image == 0) > 0:
+        raise ValueError('Image is blank.  Please re-check inputted data.')
         
     
     #Conversion from transmission data to water thickness [see Kang et al., 2013]
