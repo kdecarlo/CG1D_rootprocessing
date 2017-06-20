@@ -12,10 +12,7 @@ setup(
 	install_requires = [
 		'numpy', 
 		'astropy',
-		'time',
 		'scipy',
-		'datetime',
-		#'scikit-image',
 		'pillow',
 		],
 		dependency_links = [
