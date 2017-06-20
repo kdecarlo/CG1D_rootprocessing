@@ -1,3 +1,4 @@
+from __future__ import print_function
 import numpy as np
 from astropy.io import fits
 import time
@@ -10,7 +11,6 @@ import scipy.misc
 from scipy.signal import medfilt
 from PIL import Image
 import os
-from __future__ import print_function
 
 def RP_timerstart(scriptname):
 
