@@ -16,7 +16,7 @@ setup(
 		'scipy',
 		'datetime',
 		'skimage',
-		'PIL',
+		'pillow',
 		],
 		dependency_links = [
 		],
