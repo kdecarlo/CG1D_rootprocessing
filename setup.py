@@ -2,13 +2,13 @@
 from setuptools import setup, find_packages
 
 setup(
-	name = 'Root_Processing',
+	name = 'RootProcessing',
 	version = '1.0.0', 
 	author = 'Keita DeCarlo', 
 	author_email = 'decarlokd@ornl.gov', 
 	packages = find_packages(exclude=['test', 'Notebook_Code']),
 	include_package_data = True, 
-	test_suite = 'tests', 
+	test_suite = 'test', 
 	install_requires = [
 		'numpy', 
 		'astropy',
