@@ -15,7 +15,7 @@ before_install:
   - export PATH=/home/travis/mc/bin:$PATH
   
 install:
- - conda config --set always_yes true
+  - conda config --set always_yes true
   - conda update conda
   - conda create -n testenv pip nose python=$TRAVIS_PYTHON_VERSION 
   - source activate testenv
