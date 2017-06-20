@@ -19,13 +19,13 @@ class TestClass(unittest.TestCase):
         self.data_path = os.path.abspath(os.path.join(_file_path, '../'))
         if os.path.isdir(self.data_path+'/Sample_Data_unittest'):
             shutil.rmtree(self.data_path+'/Sample_Data_unittest')
-        print('Hello')
+        #print('Hello')
     
     def tearDown(self):
         wd = self.data_path
         if os.path.isdir(wd+'/Sample_Data_unittest'):
             shutil.rmtree(wd+'/Sample_Data_unittest')
-        print('Bye')
+        #print('Bye')
         
     
     def test_incorrect_input(self):
@@ -49,17 +49,17 @@ class TestClass(unittest.TestCase):
         from RP_run import RP_run                                  
         
         #With override option
-        self.assertRaises(ValueError, RP_run, wd, bad_analysis_list_sp, 1)
-        self.assertRaises(ValueError, RP_run, wd, bad_analysis_list_str, 1)
-        self.assertRaises(ValueError, RP_run, wd, bad_analysis_list_int, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', bad_analysis_list_sp, 0, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', bad_analysis_list_str, 0, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', bad_analysis_list_int, 0, 1)
         
         #Without override option
-        self.assertRaises(ValueError, RP_run, wd, bad_analysis_list_sp, 0)
-        self.assertRaises(ValueError, RP_run, wd, bad_analysis_list_str, 0)
-        self.assertRaises(ValueError, RP_run, wd, bad_analysis_list_int, 0)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', bad_analysis_list_sp, 0, 0)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', bad_analysis_list_str, 0, 0)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', bad_analysis_list_int, 0, 0)
         
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, bad_override_str)
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, bad_override_int)                                         
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, bad_override_str)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, bad_override_int)                                         
 
     def test_stitch(self):
         wd = self.data_path
@@ -74,14 +74,14 @@ class TestClass(unittest.TestCase):
         
         #user_config-specified image/actual image mismatch - due to number, incorrect file format, etc.
         os.remove(wd+'/Sample_Data_unittest/raw/19000101_Image_0060_0006.tiff')
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
         
         #image sizes are not consistent
         bad_image = np.zeros([100, 100])
         bad_image = Image.fromarray(bad_image)
         bad_image.save(wd+'/Sample_Data_unittest/raw/19000101_Image_0060_0006.tiff')
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, 1) 
-        print(wd+'/Sample_Data_unittest')
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1) 
+        #print(wd+'/Sample_Data_unittest')
         shutil.rmtree(wd+'/Sample_Data_unittest') 
 
            
@@ -98,14 +98,14 @@ class TestClass(unittest.TestCase):
         analysis_list = ['RP_crop']
         
         #Stitched image not found
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
         
         #Cropmat values are greater/larger than the inputted image
         bad_image = np.zeros([20, 20])
         bad_image = Image.fromarray(bad_image)
         bad_image.save(wd+'/Sample_Data_unittest/stitched/SampleImg_stitched.tiff')
         
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
         
         shutil.rmtree(wd+'/Sample_Data_unittest') 
         
@@ -124,7 +124,7 @@ class TestClass(unittest.TestCase):
         analysis_list = ['RP_wc']
         
         #Cropped image not found
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
                 
         shutil.rmtree(wd+'/Sample_Data_unittest') 
         
@@ -143,14 +143,14 @@ class TestClass(unittest.TestCase):
         analysis_list = ['RP_mask']
         
         #Cropped image not found
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
         
         #Image is too small - windowsize is larger than image
         bad_image = np.zeros([5, 5])
         bad_image = Image.fromarray(bad_image)
         bad_image.save(wd+'/Sample_Data_unittest/crop/SampleImg_crop.tiff')
         
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
         
         shutil.rmtree(wd+'/Sample_Data_unittest')
         
@@ -169,7 +169,7 @@ class TestClass(unittest.TestCase):
         analysis_list = ['RP_imagefilter']
         
         #mask image not found
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
         
         shutil.rmtree(wd+'/Sample_Data_unittest')
         
@@ -186,14 +186,14 @@ class TestClass(unittest.TestCase):
         analysis_list = ['RP_distmap']
         
         #mask image not found
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
         
         #Mask image has no object to analyze
         bad_image = np.zeros([5, 5])
         bad_image = Image.fromarray(bad_image)
         bad_image.save(wd+'/Sample_Data_unittest/mask_filter/SampleImg_filter.tiff')
         
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
         
         shutil.rmtree(wd+'/Sample_Data_unittest') 
         
@@ -214,7 +214,7 @@ class TestClass(unittest.TestCase):
         analysis_list = ['RP_radwc']
         
         #wc, distmap, mask images not found
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
         
         shutil.rmtree(wd+'/Sample_Data_unittest')   
         
@@ -233,7 +233,7 @@ class TestClass(unittest.TestCase):
         analysis_list = ['RP_thickness']
         
         #mask image not found
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
 
         shutil.rmtree(wd+'/Sample_Data_unittest') 
         
@@ -252,7 +252,7 @@ class TestClass(unittest.TestCase):
         analysis_list = ['RP_rootimage']
         
         #wc, mask images not found
-        self.assertRaises(ValueError, RP_run, wd, analysis_list, 1)
+        self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
                 
         shutil.rmtree(wd+'/Sample_Data_unittest')
 

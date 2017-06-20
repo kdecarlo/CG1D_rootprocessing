@@ -6,7 +6,7 @@ setup(
 	version = '1.0.0', 
 	author = 'Keita DeCarlo', 
 	author_email = 'decarlokd@ornl.gov', 
-	packages = find_packages(exclude=['tests, 'notebooks']),
+	packages = find_packages(exclude=['test', 'Notebook_Code']),
 	include_package_data = True, 
 	test_suite = 'tests', 
 	install_requires = [

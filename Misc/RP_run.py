@@ -17,7 +17,7 @@ import sys
 
 
 
-def RP_run(wd, wd_userconfig = '', analysis_list, parameters_ = 0, override = 0):
+def RP_run(wd, wd_userconfig = '', analysis_list = [], parameters_ = 0, override = 0):
     '''
     SUMMARY: 
     'RP_run' takes in as input the image processing steps that the user is interested in and runs them.
