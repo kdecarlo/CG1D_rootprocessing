@@ -21,13 +21,17 @@ install:
   - source activate testenv
   - conda install scikit-image
   - pip install -U pytest
+  - pip install pytest-cov
+  - pip install codecov
   - python setup.py install
 
 script:
-  - pytest -v
+  - pytest -v --cov
 #   - python tests/getdata.py
 #   - python tests/ivenus/signon.py
 #   - nosetests --exe
+after_success:
+  - codecov
 
 notifications:
   email:
