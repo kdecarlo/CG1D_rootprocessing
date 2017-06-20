@@ -197,7 +197,8 @@ def RP_run(wd, wd_userconfig = '', analysis_list = [], parameters_ = 0, override
         else:
             parameters = RP_userconfiganalysis(wd_userconfig, analysis_pos, analysis)
         if not parameters_ == 0:
-            parameters = {**parameters, **parameters_}
+            for key in parameters_:
+                parameters[key] = parameters_[key]
             
         if analysis == 'RP_stitch':
             I = parameters['image_filename']
