@@ -17,8 +17,6 @@ setup(
 		'datetime',
 		'skimage',
 		'PIL',
-		'os',
-		'sys',
 		],
 		dependency_links = [
 		],
