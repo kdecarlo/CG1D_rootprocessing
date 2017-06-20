@@ -7,46 +7,12 @@ python:
   - 2.7
   - 3.4
 
-# branches:
-#   only:
-#    - master
-#
-# services:
-#
-# matrix:
-#  include:
-#    - os: linux
-   
-before_install:
-  - if [ ${TRAVIS_PYTHON_VERSION:0:1} == "2" ]; then wget http://repo.continuum.io/miniconda/Miniconda-3.5.5-Linux-x86_64.sh -O miniconda.sh; else wget http://repo.continuum.io/miniconda/Miniconda3-3.5.5-Linux-x86_64.sh -O miniconda.sh; fi
-  - chmod +x miniconda.sh
-  - ./miniconda.sh -b -p /home/travis/mc
-  - export PATH=/home/travis/mc/bin:$PATH
-
-after_success:
-  - codecov
-
 install:
-  - export GIT_FULL_HASH=`git rev-parse HEAD`
-  - conda config --set always_yes true
-  - conda update conda
-  - conda create -n testenv pip nose python=$TRAVIS_PYTHON_VERSION numpy astropy scipy
-#  - conda install -n testenv -c scikit-xray xraylib lmfit=0.8.3 netcdf4 # install from scikit-xray channel
-  - source activate testenv
+  - pip install -U pytest
   - python setup.py install
-#  - pip install coveralls
-  - pip install codecov
-  - pip install rednose
-  - pip install coverage
-#modules used    
-  - pip install astropy
-  - pip install datetime
-  - pip install skimage
-  - pip install PIL
-  - pip install scipy
 
 script:
-  - nosetests -v --rednose --cover-package=neutronbraggedge --with-coverage 
+  - pytest -v
 #   - python tests/getdata.py
 #   - python tests/ivenus/signon.py
 #   - nosetests --exe
