@@ -9,8 +9,9 @@ License: BSD
 Description: UNKNOWN
 Keywords: tiff tif root processing
 Platform: UNKNOWN
-Classifier: Development Status :: 1 - Alpha
+Classifier: Development Status :: 3 - Alpha
 Classifier: Topic :: Scientific/Engineering :: Biological Sciences
 Classifier: Intended Audience :: General User Population
 Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
 Classifier: Programming Language :: Python :: 3.5
