@@ -24,7 +24,7 @@ setup(
 		],
 		description = 'Root Processing suite for images at the ORNL CG-1D beamline',
 		license = 'BSD',
-		'keywords = 'tiff tif root processing',
+		keywords = 'tiff tif root processing',
 		url = 'https://github.com/kdecarlo/CG1D_rootprocessing',
 		classifiers = ['Development Status :: 1 - Alpha', 
 						'Topic :: Scientific/Engineering :: Biological Sciences',
