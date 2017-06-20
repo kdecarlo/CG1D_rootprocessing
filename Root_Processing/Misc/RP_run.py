@@ -17,7 +17,7 @@ import sys
 
 
 
-def RP_run(wd, wd_userconfig = '', analysis_list = [], parameters_ = 0, override = 0):
+def RP_run(wd, wd_userconfig = '', analysis_list, parameters_ = 0, override = 0):
     '''
     SUMMARY: 
     'RP_run' takes in as input the image processing steps that the user is interested in and runs them.
@@ -27,15 +27,17 @@ def RP_run(wd, wd_userconfig = '', analysis_list = [], parameters_ = 0, override
     specified by 'wd') of interest are specified by the user in the list 'analysis_list', and run.  If the
     user is interested in specifying individual parameters for each algorithm, the 'parameters_' variable
     allows the user to specify in dictionary format the specific parameters that the user would like to change
-    without manually changing them in the 'user_config.txt' file.  'override' is set to 1 if already existing 
-    outputted files can be overwritten with the new run.
+    without manually changing them in the 'user_config.txt' file, whose file location is specified by 
+    'wd_userconfig' (if left unspecified, the code assumes it to be in 'wd').  'override' is set to 1 if 
+    already existing outputted files can be overwritten with the new run.
     
     
     PARAMETERS:
     1. wd: the working directory where the 'Root_Processing' algorithm is stored.
-    2. analysis_list: a string list of the algorithms that the user wants to run, in order.
-    3. parameters_: specific parameters that the user may wish to modify outside of the 'user_config.txt' file.
-    4. override: flag for whether the user wants to override previously written files normally outputted by the
+    2. wd_userconfig: the working directory where the 'user_config.txt' file is located.
+    3. analysis_list: a string list of the algorithms that the user wants to run, in order.
+    4. parameters_: specific parameters that the user may wish to modify outside of the 'user_config.txt' file.
+    5. override: flag for whether the user wants to override previously written files normally outputted by the
     algorithm.
     
     '''
