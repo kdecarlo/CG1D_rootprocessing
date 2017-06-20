@@ -10,7 +10,7 @@ import scipy.misc
 from scipy.signal import medfilt
 from PIL import Image
 import os
-
+from __future__ import print_function
 
 def RP_timerstart(scriptname):
 
