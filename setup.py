@@ -21,9 +21,10 @@ setup(
 		license = 'BSD',
 		keywords = 'tiff tif root processing',
 		url = 'https://github.com/kdecarlo/CG1D_rootprocessing',
-		classifiers = ['Development Status :: 1 - Alpha', 
+		classifiers = ['Development Status :: 3 - Alpha', 
 						'Topic :: Scientific/Engineering :: Biological Sciences',
 						'Intended Audience :: General User Population',
 						'Programming Language :: Python :: 2.7',
+						'Programming Language :: Python :: 3.4',
 						'Programming Language :: Python :: 3.5'],
 )

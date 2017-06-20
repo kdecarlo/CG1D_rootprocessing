@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: RootProcessing
+Version: 1.0.0
+Summary: Root Processing suite for images at the ORNL CG-1D beamline
+Home-page: https://github.com/kdecarlo/CG1D_rootprocessing
+Author: Keita DeCarlo
+Author-email: decarlokd@ornl.gov
+License: BSD
+Description: UNKNOWN
+Keywords: tiff tif root processing
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Alpha
+Classifier: Topic :: Scientific/Engineering :: Biological Sciences
+Classifier: Intended Audience :: General User Population
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
