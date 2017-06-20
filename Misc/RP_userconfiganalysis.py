@@ -55,7 +55,10 @@ def RP_userconfiganalysis(wd, analysis_pos, analysis):
         if (counter > analysis_pos[0]-1) & (counter < analysis_pos[1]+1):
             splitline = line.split(':')
             parameters_ = {splitline[0]:splitline[1].strip()}
-            parameters = {**parameters, **parameters_}
+            for items in parameters_:
+                parameters[items] = parameters_[items]
+            #parameters = parameters_
+            #parameters = {**parameters, **parameters_}
         counter += 1
         
     #1. STITCH
