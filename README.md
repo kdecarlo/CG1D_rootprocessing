@@ -1,7 +1,5 @@
 [![Build Status](https://travis-ci.org/kdecarlo/CG1D_rootprocessing.svg?branch=master)](https://travis-ci.org/kdecarlo/CG1D_rootprocessing)
 
-.. README:
-
 ****************
 Root Processing
 ****************
