@@ -1,10 +1,8 @@
 [![Build Status](https://travis-ci.org/kdecarlo/CG1D_rootprocessing.svg?branch=master)](https://travis-ci.org/kdecarlo/CG1D_rootprocessing)
 
-.. README:
-
-****************
-Root Processing
-****************
+********************
+**Root Processing**
+********************
 
 This is the root processing suite for images at the ORNL CG-1D beamline.  
 
