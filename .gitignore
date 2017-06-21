@@ -1,0 +1,5 @@
+*.py[c-o]
+.DS_Store
+__pycache__
+.cache
+.ipynb*
