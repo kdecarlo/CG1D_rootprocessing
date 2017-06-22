@@ -55,23 +55,23 @@ def RP_run(wd, wd_userconfig = '', analysis_list = [], parameters_ = 0, override
     #sys.path.append(wd+'/Analyses')
     #sys.path.append(wd+'/Misc')
     
-    from RP_IOfilecheck import RP_IOfilecheck
-    from RP_timerstart import RP_timerstart
-    from RP_timerprogress import RP_timerprogress
-    from RP_timerend import RP_timerend
-    from RP_stitch import RP_stitch
-    from RP_crop import RP_crop
-    from RP_wc import RP_wc
-    from RP_mask import RP_mask
-    from RP_imagefilter import RP_imagefilter
-    from RP_distmap import RP_distmap
-    from RP_radwc import RP_radwc
-    from RP_thickness import RP_thickness
-    from RP_userconfiganalysis import RP_userconfiganalysis
-    from RP_windowrange import RP_windowrange
-    from RP_distwindowrange import RP_distwindowrange
-    from RP_remove import RP_remove
-    from RP_rootimage import RP_rootimage
+    from rootprocessing.RP_IOfilecheck import RP_IOfilecheck
+    from rootprocessing.RP_timerstart import RP_timerstart
+    from rootprocessing.RP_timerprogress import RP_timerprogress
+    from rootprocessing.RP_timerend import RP_timerend
+    from rootprocessing.RP_stitch import RP_stitch
+    from rootprocessing.RP_crop import RP_crop
+    from rootprocessing.RP_wc import RP_wc
+    from rootprocessing.RP_mask import RP_mask
+    from rootprocessing.RP_imagefilter import RP_imagefilter
+    from rootprocessing.RP_distmap import RP_distmap
+    from rootprocessing.RP_radwc import RP_radwc
+    from rootprocessing.RP_thickness import RP_thickness
+    from rootprocessing.RP_userconfiganalysis import RP_userconfiganalysis
+    from rootprocessing.RP_windowrange import RP_windowrange
+    from rootprocessing.RP_distwindowrange import RP_distwindowrange
+    from rootprocessing.RP_remove import RP_remove
+    from rootprocessing.RP_rootimage import RP_rootimage
     
     '''
     Definitions that can be run for analysis (see below for details):
