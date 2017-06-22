@@ -13,11 +13,11 @@ Running the suite on the sample data provided::
 
 	#Importing sample dataset
 	wd = '/Users/...'  #Specify where you saved your sample data
-	from sampledata import sampledata
+	from rootprocessing.sampledata import sampledata
 	sampledata(wd)
 
 	#Running Code - Default Settings
-	from RP_run import RP_run
+	from rootprocessing.RP_run import RP_run
 	analysis_list = [
 		'RP_stitch',
 		'RP_crop',
