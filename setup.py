@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
 	name = 'rootprocessing',
-	version = '1.0.1', 
+	version = '1.0.2', 
 	author = 'Keita DeCarlo', 
 	author_email = 'decarlokd@ornl.gov', 
 	packages = find_packages(exclude=['test', 'Notebook_Code']),
