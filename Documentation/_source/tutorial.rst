@@ -41,7 +41,7 @@ We will also need to specify where the user_config.txt file will be.  In our cas
 
 Once this is complete, then simply run the module, and the outputted subdirectories/data will automatically be placed in the 'Sample_Data' subdirectory::
 	
-    RP_run(wd, analysis_list, wd_userconfig)
+    RP_run(wd, wd_userconfig, analysis_list)
 
 Specific tutorials for each analysis will be outlined, using the sample dataset provided, so be sure to run that code when following through the guides.
 

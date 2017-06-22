@@ -30,5 +30,5 @@ Running the suite on the sample data provided::
 		'RP_rootimage',
 		]
 	wd_userconfig = wd+'/Sample_Data'	#Specify where you saved your user_config file - in case of sample dataset, it is saved together with the data directory
-	RP_run(wd, analysis_list, wd_userconfig)
+	RP_run(wd, wd_userconfig, analysis_list)
 
