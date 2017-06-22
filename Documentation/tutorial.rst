@@ -20,7 +20,7 @@ We will then create a fake dataset in order to run and test the analyses.  In yo
 
 This will create a 'Sample_Data' subdirectory in your library, which will contain a 'raw' subdirectory with a set of 6 images, as well as a dark field and open beam image.
 
-You will also notice a 'user_config' file created in the 'Sample_Data' file - this contains all the necessary parameters for each of the analyses conducted by this library.  Please check the documentation within each module for details. 
+You will also notice a 'user_config' file created in the 'Sample_Data' file - this contains all the necessary parameters for each of the analyses conducted by this library.  Please check the documentation within each module for details.  
 
 Also, be sure to *only change the entries following the colon for each parameter!*  Do not add any extra lines or modify the headings for each section.  
 
@@ -41,7 +41,6 @@ We will also need to specify where the user_config.txt file will be.  In our cas
 Once this is complete, then simply run the module, and the outputted subdirectories/data will automatically be placed in the 'Sample_Data' subdirectory::
 	
     RP_run(wd, analysis_list, wd_userconfig)
->>>>>>> gh-pages
 
 Specific tutorials for each analysis will be outlined, using the sample dataset provided, so be sure to run that code when following through the guides.
 

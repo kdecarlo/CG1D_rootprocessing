@@ -2,8 +2,8 @@
 from setuptools import setup, find_packages
 
 setup(
-	name = 'RootProcessing',
-	version = '1.0.0', 
+	name = 'rootprocessing',
+	version = '1.0.1', 
 	author = 'Keita DeCarlo', 
 	author_email = 'decarlokd@ornl.gov', 
 	packages = find_packages(exclude=['test', 'Notebook_Code']),

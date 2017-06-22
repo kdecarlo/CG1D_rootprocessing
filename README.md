@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/kdecarlo/Root_Processing.svg?branch=master)](https://travis-ci.org/kdecarlo/Root_Processing)
+[![Build Status](https://travis-ci.org/kdecarlo/CG1D_rootprocessing.svg?branch=master)](https://travis-ci.org/kdecarlo/CG1D_rootprocessing)
 [![codecov](https://codecov.io/gh/kdecarlo/Root_Processing/branch/master/graph/badge.svg)](https://codecov.io/gh/kdecarlo/Root_Processing)
 
 ********************
@@ -7,20 +7,12 @@
 
 This is the root processing suite for images at the ORNL CG-1D beamline.  Please visit [here](https://kdecarlo.github.io/Root_Processing/) for full documentation.
 
-**Downloading**
-
-
-
 **Example**
 
 Running the suite on the sample data provided::
 
 	#Importing sample dataset
-	import sys
 	wd = '/Users/...'  #Specify where you saved your sample data
-	sys.path.append(wd+'/Analyses')
-	sys.path.append(wd+'/Misc')
-
 	from sampledata import sampledata
 	sampledata(wd)
 
