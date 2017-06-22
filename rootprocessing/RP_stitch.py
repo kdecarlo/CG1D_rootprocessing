@@ -11,10 +11,10 @@ from scipy.signal import medfilt
 from PIL import Image
 import os
 
-from RP_timerstart import RP_timerstart
-from RP_timerprogress import RP_timerprogress
-from RP_timerend import RP_timerend
-from RP_IOfilecheck import RP_IOfilecheck
+from rootprocessing.RP_timerstart import RP_timerstart
+from rootprocessing.RP_timerprogress import RP_timerprogress
+from rootprocessing.RP_timerend import RP_timerend
+from rootprocessing.RP_IOfilecheck import RP_IOfilecheck
 
 def RP_stitch(parameters):
     '''

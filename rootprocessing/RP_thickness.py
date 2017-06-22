@@ -11,11 +11,11 @@ from scipy.signal import medfilt
 from PIL import Image
 import os
 
-from RP_timerstart import RP_timerstart
-from RP_timerprogress import RP_timerprogress
-from RP_timerend import RP_timerend
-from RP_windowrange import RP_windowrange
-from RP_distwindowrange import RP_distwindowrange
+from rootprocessing.RP_timerstart import RP_timerstart
+from rootprocessing.RP_timerprogress import RP_timerprogress
+from rootprocessing.RP_timerend import RP_timerend
+from rootprocessing.RP_windowrange import RP_windowrange
+from rootprocessing.RP_distwindowrange import RP_distwindowrange
 
 def RP_thickness(parameters):
     '''
