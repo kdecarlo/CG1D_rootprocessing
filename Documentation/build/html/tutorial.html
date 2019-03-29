@@ -1,0 +1,157 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Getting Started &#8212; Root_Processing 1.0.7 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Started: Stitch" href="tutorial_stitch.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p><strong>I. SETTING UP</strong></p>
+<p>First, download the ‘Root_Processing’ library, available on the PyPi website, onto your computer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">rootprocessing</span>
+</pre></div>
+</div>
+<p>We will then create a fake dataset in order to run and test the analyses.  In your window, type the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rootprocessing</span>
+<span class="n">wd</span> <span class="o">=</span> <span class="s1">&#39;/Users/johnsmith&#39;</span>  <span class="c1">#Specify where your data files will be.</span>
+<span class="kn">from</span> <span class="nn">rootprocessing.sampledata</span> <span class="k">import</span> <span class="n">sampledata</span>
+<span class="n">sampledata</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will create a ‘Sample_Data’ subdirectory in your library, which will contain a ‘raw’ subdirectory with a set of 6 images, as well as a dark field and open beam image.</p>
+<p>You will also notice a ‘user_config’ file created in the ‘Sample_Data’ file - this contains all the necessary parameters for each of the analyses conducted by this library.  Please check the documentation within each module for details.</p>
+<p>Also, be sure to <em>only change the entries following the colon for each parameter!</em>  Do not add any extra lines or modify the headings for each section.</p>
+<p><strong>II. RUNNING ANALYSES WITH ‘RP_RUN’</strong></p>
+<p>From here, we will use the ‘RP_run’ module, which will act as the top-level program for running any analyses of interest:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rootprocessing.RP_run</span> <span class="k">import</span> <span class="n">RP_run</span>
+</pre></div>
+</div>
+<p>We will then specify the analyses of interest.  You can run these in any order, but make sure that you have the necessary images and analyses completed first.  Below is the suggested order of the analyses:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">analysis_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;RP_stitch&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_crop&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_wc&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_mask&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_imagefilter&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_distmap&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_radwc&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_thickness&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_rootimage&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>We will also need to specify where the user_config.txt file will be.  In our case, this is the same location as where our data files are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wd_userconfig</span> <span class="o">=</span> <span class="n">wd</span><span class="o">+</span><span class="s1">&#39;/Sample_Data&#39;</span>
+</pre></div>
+</div>
+<p>Once this is complete, then simply run the module, and the outputted subdirectories/data will automatically be placed in the ‘Sample_Data’ subdirectory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RP_run</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">wd_userconfig</span><span class="p">,</span> <span class="n">analysis_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Specific tutorials for each analysis will be outlined, using the sample dataset provided, so be sure to run that code when following through the guides.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Root_Processing</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_stitch.html">Getting Started: Stitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_crop.html">Getting Started: Crop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_wc.html">Getting Started: wc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_mask.html">Getting Started: mask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_imagefilter.html">Getting Started: imagefilter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_distmap.html">Getting Started: distmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_radwc.html">Getting Started: radwc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_thickness.html">Getting Started: thickness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_rootimage.html">Getting Started: rootimage</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="intro.html" title="previous chapter">Introduction</a></li>
+      <li>Next: <a href="tutorial_stitch.html" title="next chapter">Getting Started: Stitch</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Keita DeCarlo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/tutorial.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
