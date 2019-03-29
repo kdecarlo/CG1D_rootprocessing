@@ -72,7 +72,7 @@ def RP_thickness(parameters):
     skel = skeletonize(image > 0)
 
     #Distance transform from center of root to all other pixels
-    #dist = ndimage.morphology.distance_transform_edt(~skel)
+    dist = ndimage.morphology.distance_transform_edt(~skel)
 
     #Distance from edge of root to center
     rootdist = ndimage.morphology.distance_transform_edt(image)
