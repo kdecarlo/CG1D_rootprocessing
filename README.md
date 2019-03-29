@@ -5,7 +5,7 @@
 **Root Processing**
 ********************
 
-This is the root processing suite for images at the ORNL CG-1D beamline.  Please visit [https://kdecarlo.github.io/Root_Processing/](https://kdecarlo.github.io/Root_Processing/) for full documentation.
+This is the root processing suite for images at the ORNL CG-1D beamline.  Please visit [https://kdecarlo.github.io/Root_Processing/](https://kdecarlo.github.io/Root_Processing/) for full documentation.  The program is available to download on all platforms.
 
 **Example**
 
