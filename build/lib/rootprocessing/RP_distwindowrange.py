@@ -3,8 +3,8 @@ import numpy as np
 def RP_distwindowrange(i,j,windowsize,imdim):
     '''
     SUMMARY:
-    'RP_distwindowrange': outputs rows/columns after considering edge effects for a single
-    pixel distance array.  Used mainly in 'RP_thickness' code.  
+    'RPdistwindowrange':outputs rows/columns after considering edge effects for a single
+    pixel distance array.  Used only in 'RPthickness' code.  
     
     USING CODE: 
     Position 'i' (i.e. rows) and 'j' (i.e. columns) will be evaluated in conjunction with 

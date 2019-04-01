@@ -165,7 +165,7 @@ def RP_distmap(parameters):
 
         [y1,y2,x1,x2] = RP_windowrange(y,x,windowsize,imdim)
         
-        [a,b,c,d,yc_,xc_] = RP_distwindowrange(y,x,windowsize,imdim)
+        [a,b,c,d,xc_,yc_] = RP_distwindowrange(y,x,windowsize,imdim)
 
         contour_w = contour_skel_map[y1:y2,x1:x2]
         contourpos_w = np.where(contour_w)
