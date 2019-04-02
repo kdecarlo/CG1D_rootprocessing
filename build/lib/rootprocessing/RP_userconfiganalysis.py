@@ -155,7 +155,16 @@ def RP_userconfiganalysis(wd, analysis_pos, analysis):
             raise ValueError('RADWC - Invalid numbers: pixelbin must be greater than 0.')
     
     #8. THICKNESS
-    
-    #9. ROOTIMAGE
-    
+
+    #9. ROOTDIAMETER
+    if analysis == 'RP_rootdiameter':
+        try:
+            parameters['bincount'] = np.int(parameters['bincount'])
+        except ValueError:
+            raise ValueError('\'bincount\' values are not in correct format.  Please check documentation.')
+        if parameters['bincount'] < 0:
+            raise ValueError('ROOTDIAMETER - Invalid numbers: bincount must be greater than 0.')
+
+
+
     return(parameters)

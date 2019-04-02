@@ -50,7 +50,7 @@ def RP_rootdiameter(parameters):
 	if bincount < 0:
 		raise ValueError('bincount is assigned a negative, and thus invalid, number.  Please recheck input files.')
 	
-	image_mask = Image.open(mask_filename)
+	image = Image.open(mask_filename)
 	image = np.array(image)
 	image = image > 0
 
