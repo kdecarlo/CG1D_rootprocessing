@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Getting Started &#8212; Root_Processing 1.0.7 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +13,6 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting Started: Stitch" href="tutorial_stitch.html" />
@@ -74,15 +71,17 @@
 input files are already in place).  So for example, if a user is only interested in the
 root diameter distribution of their image, they can run either:</p>
 <blockquote>
-<div>analysis_list = [‘RP_stitch’, ‘RP_crop’, ‘RP_mask’, ‘RP_imagefilter’,
+<div><p>analysis_list = [‘RP_stitch’, ‘RP_crop’, ‘RP_mask’, ‘RP_imagefilter’,
 ‘RP_rootdiameter’]
-RP_run(wd, wd_userconfig, analysis_list)</div></blockquote>
+RP_run(wd, wd_userconfig, analysis_list)</p>
+</div></blockquote>
 <p>Or:</p>
 <blockquote>
-<div>RP_run(wd, wd_userconfig, [‘RP_crop’])
+<div><p>RP_run(wd, wd_userconfig, [‘RP_crop’])
 RP_run(wd, wd_userconfig, [‘RP_mask’])
 RP_run(wd, wd_userconfig, [‘RP_imagefilter’])
-RP_run(wd, wd_userconfig, [‘RP_rootdiameter’])</div></blockquote>
+RP_run(wd, wd_userconfig, [‘RP_rootdiameter’])</p>
+</div></blockquote>
 <p>Both of these formats will output the same files.</p>
 <p>Specific tutorials for each analysis will be outlined, using the sample dataset provided, so be sure to run that code when following through the guides.</p>
 </div>
@@ -134,8 +133,6 @@ RP_run(wd, wd_userconfig, [‘RP_rootdiameter’])</div></blockquote>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -156,7 +153,7 @@ RP_run(wd, wd_userconfig, [‘RP_rootdiameter’])</div></blockquote>
       &copy;2019, Keita DeCarlo.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

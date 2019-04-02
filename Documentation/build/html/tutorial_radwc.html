@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Getting Started: radwc &#8212; Root_Processing 1.0.7 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +13,6 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting Started: thickness" href="tutorial_thickness.html" />
@@ -44,26 +41,21 @@
 <p><strong>II. HOW TO USE</strong></p>
 <p>First, open the ‘user_config’ text file in your ‘Root_Processing’ directory.  The parameters used in ‘RP_radwc’ are in the 7th section, and there will be six parameters.  In order, they are:</p>
 <ol class="arabic">
-<li><p class="first">wc_filename: this is the full image filename (including directory) where the water content image is to be found.</p>
-</li>
-<li><p class="first">distmap_filename: this is the full image filename (including directory) where the image outputted from ‘RP_distmap’ is to be found.</p>
-</li>
-<li><p class="first">mask_filename: this is the full image filename (including directory) where the mask image is to be found.</p>
-</li>
-<li><p class="first">output_filename: this is the directory where the outputted files will be saved.</p>
-</li>
-<li><p class="first">fileformat: this is the file prefix that will be attached to the four files outputted by this analysis.  So, for example, if ‘fileformat’ is set as ‘SampleImg’, then the 4 files outputted will be:</p>
+<li><p>wc_filename: this is the full image filename (including directory) where the water content image is to be found.</p></li>
+<li><p>distmap_filename: this is the full image filename (including directory) where the image outputted from ‘RP_distmap’ is to be found.</p></li>
+<li><p>mask_filename: this is the full image filename (including directory) where the mask image is to be found.</p></li>
+<li><p>output_filename: this is the directory where the outputted files will be saved.</p></li>
+<li><p>fileformat: this is the file prefix that will be attached to the four files outputted by this analysis.  So, for example, if ‘fileformat’ is set as ‘SampleImg’, then the 4 files outputted will be:</p>
 <blockquote>
 <div><ul class="simple">
-<li>‘SampleImg_data_distrange.txt’: 1xM text file of distance from the root</li>
-<li>‘SampleImg_data_num_xrad_ydist_wc.txt’: NxM text file of number of pixels analyzed</li>
-<li>‘SampleImg_data_radrange.txt’:1xN text file of root radii analyzed</li>
-<li>‘SampleImg_data_xrad_ydist_wc.txt’: NxM text file of mean water content for each root radius at a given distance</li>
+<li><p>‘SampleImg_data_distrange.txt’: 1xM text file of distance from the root</p></li>
+<li><p>‘SampleImg_data_num_xrad_ydist_wc.txt’: NxM text file of number of pixels analyzed</p></li>
+<li><p>‘SampleImg_data_radrange.txt’:1xN text file of root radii analyzed</p></li>
+<li><p>‘SampleImg_data_xrad_ydist_wc.txt’: NxM text file of mean water content for each root radius at a given distance</p></li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">pixelbin: the number of pixels to be binned along the ‘distance from root’ axis when determining water content</p>
-</li>
+<li><p>pixelbin: the number of pixels to be binned along the ‘distance from root’ axis when determining water content</p></li>
 </ol>
 <p><strong>III. RUNNING THE CODE</strong></p>
 <p>This analysis can be conducted using the [‘RP_radwc’] string in the ‘RP_run’ module.</p>
@@ -98,7 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="tutorial_distmap.html">Getting Started: distmap</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started: radwc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial_thickness.html">Getting Started: thickness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_rootimage.html">Getting Started: rootimage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_rootdiameter.html">Getting Started: rootdiameter</a></li>
 </ul>
 
 <div class="relations">
@@ -116,8 +108,6 @@
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -138,7 +128,7 @@
       &copy;2019, Keita DeCarlo.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

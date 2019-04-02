@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Getting Started: Stitch &#8212; Root_Processing 1.0.7 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +13,6 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting Started: Crop" href="tutorial_crop.html" />
@@ -43,33 +40,33 @@
 <p><strong>II. HOW TO USE</strong></p>
 <p>First, open the ‘user_config’ text file in your ‘Root_Processing’ directory.  The first line will be ‘1. STITCH’, with the following 9 lines specifying the parameters used in the analysis.  In order, they are:</p>
 <ol class="arabic simple">
-<li>image_filename: this is the directory name where the raw files are to be found.  Our raw files are in the ‘Sample_Data/raw’ directory.  These are the images directly outputted by the CG1D beamline, and will have integer values (i.e. not corrected to transmission values).</li>
-<li>output_filename: this is the directory name where the images will be saved.  The program will automatically make a ‘stitched’ directory if not already present, so there is no need to create one manually.</li>
-<li>output_fileformat: this is the filename format you would like your images to be saved as.</li>
+<li><p>image_filename: this is the directory name where the raw files are to be found.  Our raw files are in the ‘Sample_Data/raw’ directory.  These are the images directly outputted by the CG1D beamline, and will have integer values (i.e. not corrected to transmission values).</p></li>
+<li><p>output_filename: this is the directory name where the images will be saved.  The program will automatically make a ‘stitched’ directory if not already present, so there is no need to create one manually.</p></li>
+<li><p>output_fileformat: this is the filename format you would like your images to be saved as.</p></li>
 </ol>
 <ol class="arabic simple" start="3">
-<li>fileformat: this is the fileformat of the image to be outputted.  The CG1D beamline outputs images in a ‘YYYYMMDD_filename_secondsexposed’ format, so this is what you will write here.</li>
-<li>dimv_horzoffset: this is the <em>horizontal</em> offset value (i.e. overlap) between two images in the <em>vertical</em> dimension.</li>
+<li><p>fileformat: this is the fileformat of the image to be outputted.  The CG1D beamline outputs images in a ‘YYYYMMDD_filename_secondsexposed’ format, so this is what you will write here.</p></li>
+<li><p>dimv_horzoffset: this is the <em>horizontal</em> offset value (i.e. overlap) between two images in the <em>vertical</em> dimension.</p></li>
 </ol>
 <p>Essentially, this is the overlap between two horizontally adjacent images:</p>
 <img alt="_images/dimv_horzoffset.jpg" src="_images/dimv_horzoffset.jpg" />
 <ol class="arabic simple" start="5">
-<li>dimv_vertoffset: this is the <em>vertical</em> offset value between two images in the <em>vertical</em> dimension.</li>
+<li><p>dimv_vertoffset: this is the <em>vertical</em> offset value between two images in the <em>vertical</em> dimension.</p></li>
 </ol>
 <p>Essentially, this is how much an image “drifts” downward with each table shift:</p>
 <img alt="_images/dimv_vertoffset.jpg" src="_images/dimv_vertoffset.jpg" />
 <ol class="arabic simple" start="6">
-<li>dimh_horzoffset: this is the <em>horizontal</em> offset value between two images in the <em>horizontal</em> dimension.</li>
+<li><p>dimh_horzoffset: this is the <em>horizontal</em> offset value between two images in the <em>horizontal</em> dimension.</p></li>
 </ol>
 <p>Essentially, this is the overlap between two vertically adjacent images:</p>
 <img alt="_images/dimh_horzoffset.jpg" src="_images/dimh_horzoffset.jpg" />
 <ol class="arabic simple" start="7">
-<li>dimh_vertoffset: this is the <em>vertical</em> offset value between two images in the <em>horizontal</em> dimension.</li>
+<li><p>dimh_vertoffset: this is the <em>vertical</em> offset value between two images in the <em>horizontal</em> dimension.</p></li>
 </ol>
 <p>Essentially, this is how much an image “drifts” leftward between each table shift:</p>
 <img alt="_images/dimh_vertoffset.jpg" src="_images/dimh_vertoffset.jpg" />
 <ol class="arabic simple" start="8">
-<li>stitch_order: this is the array that specifies the order in which you would like to stitch your images.  The first two values indicate the number of (1) rows and (2) columns of raw images that your final stitched image will have.  The following numbers will specify the number label for each position, starting from row 1, column 1 (top left corner), and moving column by column, then moving on to the next row.</li>
+<li><p>stitch_order: this is the array that specifies the order in which you would like to stitch your images.  The first two values indicate the number of (1) rows and (2) columns of raw images that your final stitched image will have.  The following numbers will specify the number label for each position, starting from row 1, column 1 (top left corner), and moving column by column, then moving on to the next row.</p></li>
 </ol>
 <p>So, using our sample data, we have 6 images to stitch, with 3 images per row, and 2 images per column.  So we will specify a 1x8 array, with the first two numbers being 2
 and 3.  From here, we will specify the image position.  Our images are called ‘19000101_Image_0060_0001.tiff’, ‘19000101_Image_0060_0002.tiff’, etc.  Our ‘fileformat’ parameter specifies the image name prefix (‘19000101_Image_0060’), so we will only need to specify the numbers here.    We want image 3 in the top left corner, with image 2 and then image 1 in the top middle and top right sections, respectively.  For the bottom row, we want images 6, 5, and 4 in the left, middle, and right sections, respectively.  Placing these numbers after the first two values in the 1x8 array will give us the final ‘stitch_order’ parameter.</p>
@@ -106,7 +103,7 @@ and 3.  From here, we will specify the image position.  Our images are called �
 <li class="toctree-l1"><a class="reference internal" href="tutorial_distmap.html">Getting Started: distmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial_radwc.html">Getting Started: radwc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial_thickness.html">Getting Started: thickness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_rootimage.html">Getting Started: rootimage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_rootdiameter.html">Getting Started: rootdiameter</a></li>
 </ul>
 
 <div class="relations">
@@ -124,8 +121,6 @@ and 3.  From here, we will specify the image position.  Our images are called �
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -146,7 +141,7 @@ and 3.  From here, we will specify the image position.  Our images are called �
       &copy;2019, Keita DeCarlo.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
