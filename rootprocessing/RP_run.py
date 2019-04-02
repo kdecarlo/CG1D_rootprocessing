@@ -71,30 +71,35 @@ def RP_run(wd, wd_userconfig = '', analysis_list = [], parameters_ = 0, override
     from rootprocessing.RP_windowrange import RP_windowrange
     from rootprocessing.RP_distwindowrange import RP_distwindowrange
     from rootprocessing.RP_remove import RP_remove
-    from rootprocessing.RP_rootimage import RP_rootimage
+    from rootprocessing.RP_linedraw import RP_linedraw
+    from rootprocessing.RP_rootdiameter import RP_rootdiameter
     
     '''
     Definitions that can be run for analysis (see below for details):
     1. wc:
-    - REQUIRES: neutron transmission image (fits format, range from 0-1)
-    - PRODUCES: water content image (fits format)
+    - REQUIRES: neutron transmission image (tiff format, range from 0-1)
+    - PRODUCES: water content image (tiff format)
 
     2. mask:
-    - REQUIRES: neutron transmission image (fits format, range from 0-1)
-    - PRODUCES: binary mask image (fits format, range 0, 1)
+    - REQUIRES: neutron transmission image (tiff format, range from 0-1)
+    - PRODUCES: binary mask image (tiff format, range 0, 1)
 
     3. thickness:
-    - REQUIRES: binary mask image (fits format, range 0, 1)
-    - PRODUCES: root thickness map (fits format)
+    - REQUIRES: binary mask image (tiff format, range 0, 1)
+    - PRODUCES: root thickness map (tiff format)
 
     4. distmap:
-    - REQUIRES: binary mask image (fits format, range 0, 1)
-    - PRODUCES: soil distance map (fits format)
+    - REQUIRES: binary mask image (tiff format, range 0, 1)
+    - PRODUCES: soil distance map (tiff format)
 
     5. radwc:
-    - REQUIRES: water content image, soil distance map, and mask image (all fits format)
+    - REQUIRES: water content image, soil distance map, and mask image (all tiff format)
     NOTE: if run separately, user must specify all inputs
     - PRODUCES: water content-radius text, wc-rad count, radius and distance values (text files) 
+
+    6. rootdiameter:
+    - REQUIRES: binary mask image (tiff format, range from 0-1)
+    - PRODUCES: root diameter distribution text (text file)
 
     Miscellaneous processing:
     1. stitch:
@@ -110,6 +115,7 @@ def RP_run(wd, wd_userconfig = '', analysis_list = [], parameters_ = 0, override
     - REQUIRES: original binary mask image (fits format, range 0, 1)
     - PRODUCES: filtered mask image (fits format, range 0, 1)
 
+
     Full list of definitions:
 
     IOfilecheck
@@ -124,6 +130,8 @@ def RP_run(wd, wd_userconfig = '', analysis_list = [], parameters_ = 0, override
     remove
     distmap
     radwc
+    linedraw
+    rootdiameter
 
     '''
     
@@ -138,7 +146,7 @@ def RP_run(wd, wd_userconfig = '', analysis_list = [], parameters_ = 0, override
         'RP_distmap':[41,43],
         'RP_radwc':[46,51],
         'RP_thickness':[54,55],
-        'RP_rootimage':[58,60]
+        'RP_rootdiameter':[58,61]
     }
     
     
@@ -160,10 +168,10 @@ def RP_run(wd, wd_userconfig = '', analysis_list = [], parameters_ = 0, override
         'RP_remove':RP_remove,
         'RP_distmap':RP_distmap,
         'RP_radwc':RP_radwc,
-        'RP_rootimage':RP_rootimage
+        'RP_rootdiameter':RP_rootdiameter
     }    
     alist = ['RP_stitch', 'RP_crop', 'RP_wc', 'RP_mask', 'RP_imagefilter', 'RP_thickness', 'RP_remove', 
-            'RP_distmap', 'RP_radwc', 'RP_rootimage']
+            'RP_distmap', 'RP_radwc', 'RP_rootdiameter']
     
     if type(analysis_list) is not list:
         raise ValueError('Analysis list must be in \'list\' format, not as a string.  Please put [] around the analysis terms.')
@@ -206,8 +214,8 @@ def RP_run(wd, wd_userconfig = '', analysis_list = [], parameters_ = 0, override
         elif analysis == 'RP_radwc':
             I = parameters['wc_filename'].rsplit('/',1)[0]
             O = parameters['output_filename']
-        elif analysis == 'RP_rootimage':
-            I = parameters['wc_filename'].rsplit('/',1)[0]
+        elif analysis == 'RP_rootdiameter':
+            I = parameters['mask_filename'].rsplit('/',1)[0]
             O = parameters['output_filename'].rsplit('/',1)[0]
         else:
             I = parameters['image_filename'].rsplit('/',1)[0]

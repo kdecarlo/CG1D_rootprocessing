@@ -98,6 +98,12 @@ def RP_thickness(parameters):
         i = pixelpos_y[m]
         j = pixelpos_x[m]
 
+        #a. Eliminate Edge Effects (x-dimension only)
+        if (j == 0) | (j == imdim[1]):
+            T_map[i,j] = rootdist[i,j]*rootdist[i,j]
+            loopbreaker = 1
+            continue
+
         #I. ID if skeleton
         if skel[i, j]:
             T_map[i,j] = rootdist[i,j]*rootdist[i,j]

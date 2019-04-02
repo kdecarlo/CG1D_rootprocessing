@@ -14,7 +14,10 @@ import os
 
 def sampledata(wd, unittest = 0):
     '''
-    'sampleimages' generates a suite of images: a sample spiral image, a 'raw' version of the reference image divided into 6 individual images, and a sample dark field and open beam image.  This also creates a sample 'user_config' text file to analyze this dummy data.  Set 'unittest' to 1 if using this for a unit test.
+    'sampleimages' generates a suite of images: a sample spiral image, a 'raw' version 
+    of the reference image divided into 6 individual images, and a sample dark field 
+    and open beam image.  This also creates a sample 'user_config' text file to analyze 
+    this dummy data.  Set 'unittest' to 1 if using this for a unit test.
     '''
         
     #Create the 'user_config' data file    
@@ -83,11 +86,12 @@ def sampledata(wd, unittest = 0):
     f.write('image_filename:'+wd+'/'+unittest_str+'/mask_filter/SampleImg_filter.tiff\n')
     f.write('output_filename:'+wd+'/'+unittest_str+'/thickness/SampleImg_thickness.tiff\n')
     f.write('\n')
-    f.write('9. ROOTIMAGE\n')
-    f.write('wc_filename:'+wd+'/'+unittest_str+'/wc/SampleImg_wc.tiff\n')
+    f.write('9. ROOTDIAMETER\n')
     f.write('mask_filename:'+wd+'/'+unittest_str+'/mask_filter/SampleImg_filter.tiff\n')
-    f.write('output_filename:'+wd+'/'+unittest_str+'/rootimage/SampleImg_rootimage.tiff\n')
-    f.close()
+    f.write('output_filename:'+wd+'/'+unittest_str+'/thickness/SampleImg_thickness.tiff\n')
+    f.write('fileformat:SampleImg\n')
+    f.write('bincount:10\n')
+
   
     #Create the dummy data
     img = np.ones([500, 500])*200
