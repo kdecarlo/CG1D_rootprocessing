@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: rootprocessing
-Version: 1.0.10
+Version: 1.1.1
 Summary: Root Processing suite for images at the ORNL CG-1D beamline
 Home-page: https://github.com/kdecarlo/CG1D_rootprocessing
 Author: Keita DeCarlo
