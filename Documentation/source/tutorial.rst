@@ -45,13 +45,13 @@ Once this is complete, then simply run the module, and the outputted subdirector
 
 As noted earlier, this code can run each component separately (assuming all necessary 
 input files are already in place).  So for example, if a user is only interested in the 
-root diameter distribution of their image, they can run either:
+root diameter distribution of their image, they can run either::
 
     analysis_list = ['RP_stitch', 'RP_crop', 'RP_mask', 'RP_imagefilter', 
     'RP_rootdiameter']
     RP_run(wd, wd_userconfig, analysis_list)
     
-Or:
+Or::
     
     RP_run(wd, wd_userconfig, ['RP_crop'])
     RP_run(wd, wd_userconfig, ['RP_mask'])

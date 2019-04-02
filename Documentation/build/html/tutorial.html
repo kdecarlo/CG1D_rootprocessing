@@ -70,18 +70,18 @@
 <p>As noted earlier, this code can run each component separately (assuming all necessary
 input files are already in place).  So for example, if a user is only interested in the
 root diameter distribution of their image, they can run either:</p>
-<blockquote>
-<div><p>analysis_list = [‘RP_stitch’, ‘RP_crop’, ‘RP_mask’, ‘RP_imagefilter’,
-‘RP_rootdiameter’]
-RP_run(wd, wd_userconfig, analysis_list)</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">analysis_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;RP_stitch&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_crop&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_mask&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_imagefilter&#39;</span><span class="p">,</span>
+<span class="s1">&#39;RP_rootdiameter&#39;</span><span class="p">]</span>
+<span class="n">RP_run</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">wd_userconfig</span><span class="p">,</span> <span class="n">analysis_list</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Or:</p>
-<blockquote>
-<div><p>RP_run(wd, wd_userconfig, [‘RP_crop’])
-RP_run(wd, wd_userconfig, [‘RP_mask’])
-RP_run(wd, wd_userconfig, [‘RP_imagefilter’])
-RP_run(wd, wd_userconfig, [‘RP_rootdiameter’])</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RP_run</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">wd_userconfig</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;RP_crop&#39;</span><span class="p">])</span>
+<span class="n">RP_run</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">wd_userconfig</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;RP_mask&#39;</span><span class="p">])</span>
+<span class="n">RP_run</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">wd_userconfig</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;RP_imagefilter&#39;</span><span class="p">])</span>
+<span class="n">RP_run</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">wd_userconfig</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;RP_rootdiameter&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
 <p>Both of these formats will output the same files.</p>
 <p>Specific tutorials for each analysis will be outlined, using the sample dataset provided, so be sure to run that code when following through the guides.</p>
 </div>

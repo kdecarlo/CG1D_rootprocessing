@@ -1,4 +1,4 @@
-.. tutorial_rootimage:
+.. tutorial_rootdiameter:
 
 *******************************
 Getting Started: rootdiameter
