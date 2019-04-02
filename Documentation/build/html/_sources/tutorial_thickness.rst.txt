@@ -6,16 +6,12 @@ Getting Started: thickness
 
 **I. OVERVIEW**
 
-The 'RP_thickness' analysis creates a half-thickness image froma  binary segmented image, assuming a cylindrical shape.  
+The 'RP_thickness' analysis creates a half-thickness image from a binary segmented image, assuming a cylindrical shape.  
 
 In this analysis, a skeleton (i.e. medial axis transform) of the binary image is calculated.  A distance transform of the root is then calculated - the distance transform on the medial axis pixel is labeled a "root radius" value R.  
 
-From here, for every pixel [x, y]_p, the following are calculated:
+From here, for every pixel [x, y]<sub>p<sub>, the closest root edge pixel [x, y]<sub>e<sub> that doesn't intersect the medial axis is found.  We calculate the edge-pixel distance L<sub>EP<sub>.  Then, we extend the line between these two points, and extend it in the opposite direction, identifying the closest medial pixel [x, y]<sub>m<sub>, whose path consists entirely of the root (e.g. no medial axes that are located on other root segments).  From here, we use the R value assigned to [x, y]<sub>m<sub>.  Then, assuming a cylindrical distribution around the medial axis, we can calculate the half-dom height H of the pixel as follows:
 
-    - (1): [x, y]_m - medial axis pixel closest to [x, y]_p
-    - (2): [x, y]_e - object pixel closest to [x, y]_p
-    - (3): L_MP - distance from [x, y]_m to [x, y]_p
-    - (4): L_EP - distance from [x, y]_e to [x, y]_p
 
 .. image:: _static/thickness_map.png
 
@@ -28,6 +24,8 @@ We assume that L_MP and L_EP are on an equal plane, thereby making R = L_MP + L_
 .. image:: _static/thickness_final.png
    
 *Final product of the thickness analysis, with a 3D surface image of a selected area.  Note that the surface image is not 3D due to different scaling between the z and xy axis.*
+
+NOTE: the output values are the half-dome height of the root - if the full thickness of the root in the cross-sectional direction is desired, multiply all values by 2.
 
 **II. HOW TO USE**
 

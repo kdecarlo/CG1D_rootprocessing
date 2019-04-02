@@ -59,7 +59,7 @@
 </pre></div>
 </div>
 <p>We will then specify the analyses of interest.  You can run these in any order, but make sure that you have the necessary images and analyses completed first.  Below is the suggested order of the analyses:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">analysis_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;RP_stitch&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_crop&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_wc&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_mask&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_imagefilter&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_distmap&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_radwc&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_thickness&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_rootimage&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">analysis_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;RP_stitch&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_crop&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_wc&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_mask&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_imagefilter&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_distmap&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_radwc&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_thickness&#39;</span><span class="p">,</span> <span class="s1">&#39;RP_rootdiameter&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>We will also need to specify where the user_config.txt file will be.  In our case, this is the same location as where our data files are:</p>
@@ -70,6 +70,20 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RP_run</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">wd_userconfig</span><span class="p">,</span> <span class="n">analysis_list</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>As noted earlier, this code can run each component separately (assuming all necessary
+input files are already in place).  So for example, if a user is only interested in the
+root diameter distribution of their image, they can run either:</p>
+<blockquote>
+<div>analysis_list = [‘RP_stitch’, ‘RP_crop’, ‘RP_mask’, ‘RP_imagefilter’,
+‘RP_rootdiameter’]
+RP_run(wd, wd_userconfig, analysis_list)</div></blockquote>
+<p>Or:</p>
+<blockquote>
+<div>RP_run(wd, wd_userconfig, [‘RP_crop’])
+RP_run(wd, wd_userconfig, [‘RP_mask’])
+RP_run(wd, wd_userconfig, [‘RP_imagefilter’])
+RP_run(wd, wd_userconfig, [‘RP_rootdiameter’])</div></blockquote>
+<p>Both of these formats will output the same files.</p>
 <p>Specific tutorials for each analysis will be outlined, using the sample dataset provided, so be sure to run that code when following through the guides.</p>
 </div>
 
@@ -102,7 +116,7 @@
 <li class="toctree-l1"><a class="reference internal" href="tutorial_distmap.html">Getting Started: distmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial_radwc.html">Getting Started: radwc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial_thickness.html">Getting Started: thickness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_rootimage.html">Getting Started: rootimage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_rootdiameter.html">Getting Started: rootdiameter</a></li>
 </ul>
 
 <div class="relations">

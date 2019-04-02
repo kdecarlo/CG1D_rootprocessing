@@ -33,7 +33,7 @@ From here, we will use the 'RP_run' module, which will act as the top-level prog
 
 We will then specify the analyses of interest.  You can run these in any order, but make sure that you have the necessary images and analyses completed first.  Below is the suggested order of the analyses::
 
-    analysis_list = ['RP_stitch', 'RP_crop', 'RP_wc', 'RP_mask', 'RP_imagefilter', 'RP_distmap', 'RP_radwc', 'RP_thickness', 'RP_rootimage']
+    analysis_list = ['RP_stitch', 'RP_crop', 'RP_wc', 'RP_mask', 'RP_imagefilter', 'RP_distmap', 'RP_radwc', 'RP_thickness', 'RP_rootdiameter']
 
 We will also need to specify where the user_config.txt file will be.  In our case, this is the same location as where our data files are::
 
@@ -42,6 +42,23 @@ We will also need to specify where the user_config.txt file will be.  In our cas
 Once this is complete, then simply run the module, and the outputted subdirectories/data will automatically be placed in the 'Sample_Data' subdirectory::
 	
     RP_run(wd, wd_userconfig, analysis_list)
+
+As noted earlier, this code can run each component separately (assuming all necessary 
+input files are already in place).  So for example, if a user is only interested in the 
+root diameter distribution of their image, they can run either:
+
+    analysis_list = ['RP_stitch', 'RP_crop', 'RP_mask', 'RP_imagefilter', 
+    'RP_rootdiameter']
+    RP_run(wd, wd_userconfig, analysis_list)
+    
+Or:
+    
+    RP_run(wd, wd_userconfig, ['RP_crop'])
+    RP_run(wd, wd_userconfig, ['RP_mask'])
+    RP_run(wd, wd_userconfig, ['RP_imagefilter'])
+    RP_run(wd, wd_userconfig, ['RP_rootdiameter'])
+
+Both of these formats will output the same files.  
 
 Specific tutorials for each analysis will be outlined, using the sample dataset provided, so be sure to run that code when following through the guides.
 

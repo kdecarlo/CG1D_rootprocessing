@@ -6,10 +6,9 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Search &#8212; Root_Processing 1.0.7 documentation</title>
+    <title>Getting Started: rootdiameter &#8212; Root_Processing 1.0.7 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -17,21 +16,14 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    <script type="text/javascript" src="_static/searchtools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
-  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Getting Started: thickness" href="tutorial_thickness.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
 
   </head><body>
   
@@ -43,29 +35,21 @@
 
           <div class="body" role="main">
             
-  <h1 id="search-documentation">Search</h1>
-  <div id="fallback" class="admonition warning">
-  <script type="text/javascript">$('#fallback').hide();</script>
-  <p>
-    Please activate JavaScript to enable the search
-    functionality.
-  </p>
-  </div>
-  <p>
-    From here you can search these documents. Enter your search
-    words into the box below and click "search". Note that the search
-    function will automatically search for all of the words. Pages
-    containing fewer words won't appear in the result list.
-  </p>
-  <form action="" method="get">
-    <input type="text" name="q" value="" />
-    <input type="submit" value="search" />
-    <span id="search-progress" style="padding-left: 10px"></span>
-  </form>
-  
-  <div id="search-results">
-  
-  </div>
+  <div class="section" id="getting-started-rootdiameter">
+<h1>Getting Started: rootdiameter<a class="headerlink" href="#getting-started-rootdiameter" title="Permalink to this headline">¶</a></h1>
+<p><strong>I. OVERVIEW</strong></p>
+<p>The ‘RP_rootdiameter’ analysis creates a text file of the root diameter distribution using the root mask image.  The user has an option to bin the root diameter values, and all results are shown in terms of pixels.</p>
+<p><strong>II. HOW TO USE</strong></p>
+<p>First, open the ‘user_config’ text file in your ‘Root_Processing’ directory.  The parameters used in ‘rootdiameter’ are in the 9th section, and there will be three parameters.  In order, they are:</p>
+<ol class="arabic simple">
+<li>mask_filename: this is the full image filename (including directory) where the mask image is to be found.</li>
+<li>output_filename: this is the full image filename (including directory) where the outputted files will be saved.</li>
+<li>bincount: the number of bins the root diameter is to be placed into.</li>
+</ol>
+<p><strong>III. RUNNING THE CODE</strong></p>
+<p>This analysis can be conducted using the [‘RP_rootdiameter’] string in the ‘RP_run’ module.</p>
+</div>
+
 
           </div>
           
@@ -84,7 +68,7 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial_stitch.html">Getting Started: Stitch</a></li>
@@ -95,16 +79,29 @@
 <li class="toctree-l1"><a class="reference internal" href="tutorial_distmap.html">Getting Started: distmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial_radwc.html">Getting Started: radwc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial_thickness.html">Getting Started: thickness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_rootdiameter.html">Getting Started: rootdiameter</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started: rootdiameter</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="tutorial_thickness.html" title="previous chapter">Getting Started: thickness</a></li>
   </ul></li>
 </ul>
 </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
 
 
 
@@ -124,6 +121,9 @@
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
+      |
+      <a href="_sources/tutorial_rootdiameter.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
 
     
