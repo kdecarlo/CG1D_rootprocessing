@@ -3,9 +3,9 @@ from setuptools import setup, find_packages
 
 setup(
 	name = 'rootprocessing',
-	version = '1.0.6', 
+	version = '1.0.7', 
 	author = 'Keita DeCarlo', 
-	author_email = 'decarlokd@ornl.gov', 
+	author_email = 'kdecarlo@princeton.edu', 
 	packages = find_packages(exclude=['test', 'Notebook_Code']),
 	include_package_data = True, 
 	test_suite = 'test', 
