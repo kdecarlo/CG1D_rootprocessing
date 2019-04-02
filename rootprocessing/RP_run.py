@@ -146,7 +146,7 @@ def RP_run(wd, wd_userconfig = '', analysis_list = [], parameters_ = 0, override
         'RP_distmap':[41,43],
         'RP_radwc':[46,51],
         'RP_thickness':[54,55],
-        'RP_rootdiameter':[58,61]
+        'RP_rootdiameter':[58,60]
     }
     
     
