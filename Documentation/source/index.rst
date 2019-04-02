@@ -3,7 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Root_Processing_CG1D's documentation!
+Welcome to Root_Processing_CG1D's documentation!  Here provide a step-by-step 
+procedure for downloading and implementing the Python package 'rootprocessing'.
+
+Please follow the links below or on the left-hand side for further details.
 ================================================
 
 .. toctree::
@@ -20,7 +23,7 @@ Welcome to Root_Processing_CG1D's documentation!
    tutorial_distmap
    tutorial_radwc
    tutorial_thickness
-   tutorial_rootimage
+   tutorial_rootdiameter
    ...
 
 
