@@ -88,8 +88,7 @@ def sampledata(wd, unittest = 0):
     f.write('\n')
     f.write('9. ROOTDIAMETER\n')
     f.write('mask_filename:'+wd+'/'+unittest_str+'/mask_filter/SampleImg_filter.tiff\n')
-    f.write('output_filename:'+wd+'/'+unittest_str+'/thickness/SampleImg_thickness.tiff\n')
-    f.write('fileformat:SampleImg\n')
+    f.write('output_filename:'+wd+'/'+unittest_str+'/rootdiameter/SampleImg_rootdiameter.txt\n')
     f.write('bincount:10\n')
 
   

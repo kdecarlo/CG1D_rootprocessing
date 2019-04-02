@@ -24,15 +24,13 @@ def RP_rootdiameter(parameters):
 
 	USING CODE:
 	Necessary images are just the binary root mask (located in 'mask_filename').  
-	'output_filename' specifies the folder where the text file be placed.  'fileformat' 
-	specifis the name of the file.  'bincount' specifies how many individual bins the data
-	is to be fit into.
+	'output_filename' specifies the folder where the text file be placed.  'bincount' 
+	specifies how many individual bins the data is to be fit into.
 
 	PARAMETERS:
 	1. mask_filename: filename of the root mask image.
 	2. output_filename: filename where the text files are to be saved.
-	3. fileformat: the filename prefix to be attached to the data.
-	4. bincount: the number of bins the root diameter is to be classified into.
+	3. bincount: the number of bins the root diameter is to be classified into.
 
 	'''
 
@@ -43,7 +41,6 @@ def RP_rootdiameter(parameters):
 
 	mask_filename = parameters['mask_filename']
 	output_filename = parameters['output_filename']
-	fileformat = parameters['fileformat']
 	bincount = parameters['bincount']
 
 	IO_rootimage_mask = os.path.isfile(mask_filename)
@@ -84,7 +81,7 @@ def RP_rootdiameter(parameters):
 		histvals[i, 0] = edges[i]
 		histvals[i, 1] = hist[i]
 
-	np.savetxt(output_filename+'/'+fileformat+'_rootdiameter.txt', histvals)
+	np.savetxt(output_filename, histvals)
 	RP_timerend(starttime)
 
 
