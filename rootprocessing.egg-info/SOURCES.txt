@@ -11,7 +11,6 @@ rootprocessing/RP_mask.py
 rootprocessing/RP_radwc.py
 rootprocessing/RP_remove.py
 rootprocessing/RP_rootdiameter.py
-rootprocessing/RP_rootimage.py
 rootprocessing/RP_run.py
 rootprocessing/RP_stitch.py
 rootprocessing/RP_thickness.py

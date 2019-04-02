@@ -47,8 +47,8 @@ def RP_userconfiganalysis(wd, analysis_pos, analysis):
             if analysis == 'RP_thickness':
                 if checkline != '8. THICKNESS\n':
                     errorflag = 1
-            if analysis == 'RP_rootimage':
-                if checkline != '9. ROOTIMAGE\n':
+            if analysis == 'RP_rootdiameter':
+                if checkline != '9. ROOTDIAMETER\n':
                     errorflag = 1
             if errorflag == 1:
                 raise ValueError('user_config.txt is in an incorrect format.  Check if additional lines or text were added or modified in the file.')

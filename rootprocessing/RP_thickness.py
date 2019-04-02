@@ -187,7 +187,7 @@ def RP_thickness(parameters):
                     skel_int_img = skel_w[img_check > 0]
 
                     if np.sum(skel_int_img) == 0:
-                       advanceflag = 1
+                        advanceflag = 1
                         break
                     else:
                         T_map[i,j] = rootdist[i,j]*rootdist[i,j]
