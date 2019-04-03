@@ -87,6 +87,16 @@ def RP_wc(parameters):
     x_w = -C1 - np.sqrt(x)
     x_w[x_w == -C1] = 'nan'
     x_w = x_w/x_s
+
+    pixelpos = np.where(x_w < 0)
+    pixelpos_y = pixelpos[0]
+    pixelpos_x = pixelpos[1]
+
+    for m in range(0, np.shape(pixelpos_y)[0]):
+        i = pixelpos_y[m]
+        j = pixelpos_x[m]
+
+        x_w[i,j] = 0
     
     x_w = Image.fromarray(x_w)
     x_w.save(output_filename)

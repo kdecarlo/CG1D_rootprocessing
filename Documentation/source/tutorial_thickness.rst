@@ -10,7 +10,7 @@ The 'RP_thickness' analysis creates a half-thickness image from a binary segment
 
 In this analysis, a skeleton (i.e. medial axis transform) of the binary image is calculated.  A distance transform of the root is then calculated - the distance transform on the medial axis pixel is labeled a "root radius" value R.  
 
-From here, for every pixel [x, y]<sub>p<sub>, the closest root edge pixel [x, y]<sub>e<sub> that doesn't intersect the medial axis is found.  We calculate the edge-pixel distance L<sub>EP<sub>.  Then, we extend the line between these two points, and extend it in the opposite direction, identifying the closest medial pixel [x, y]<sub>m<sub>, whose path consists entirely of the root (e.g. no medial axes that are located on other root segments).  From here, we use the R value assigned to [x, y]<sub>m<sub>.  Then, assuming a cylindrical distribution around the medial axis, we can calculate the half-dom height H of the pixel as follows:
+From here, for every pixel [x, y]<sub>p<sub>, the closest root edge pixel [x, y]<sub>e<sub> that doesn't intersect the medial axis is found.  We calculate the edge-pixel distance L<sub>EP<sub>.  Then, we extend the line between these two points, and extend it in the opposite direction, identifying the closest medial pixel [x, y]<sub>m<sub>, whose path consists entirely of the root (e.g. no medial axes that are located on other root segments).  From here, we use the R value assigned to [x, y]<sub>m<sub>.  Then, assuming a cylindrical distribution around the medial axis, we can calculate the half-dome height H of the pixel as follows:
 
 
 .. image:: _static/thickness_map.png
