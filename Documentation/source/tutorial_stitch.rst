@@ -1,7 +1,7 @@
 .. tutorial_stitch:
 
 ************************
-Getting Started: Stitch
+Getting Started: stitch
 ************************
 
 **I. OVERVIEW**
