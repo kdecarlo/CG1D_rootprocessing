@@ -78,7 +78,7 @@ def RP_wc(parameters):
 
     image[image == 0] = 'nan'
     image[image < 0] = 'nan'
-    x = C1*C1-(np.log(image)-C2_s)/b_w
+    x = C1*C1-(np.log(image)-(-C2_s))/b_w
     maskneg = np.isnan(x)
     np.shape(maskneg)
     x[np.isnan(x)] = 0
