@@ -248,7 +248,7 @@ class TestClass(unittest.TestCase):
 
         shutil.rmtree(wd+'/Sample_Data_unittest') 
         
-    def test_rootimage(self):
+    def test_rootdiameter(self):
         
         wd = self.data_path
         sys.path.append(wd)
@@ -260,8 +260,8 @@ class TestClass(unittest.TestCase):
         
         sampledata(wd, 1)
         os.makedirs(wd+'/Sample_Data_unittest/mask_filter')
-        os.makedirs(wd+'/Sample_Data_unittest/wc')
-        analysis_list = ['RP_rootimage']
+        #os.makedirs(wd+'/Sample_Data_unittest/wc')
+        analysis_list = ['RP_rootdiameter']
         
         #wc, mask images not found
         self.assertRaises(ValueError, RP_run, wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
