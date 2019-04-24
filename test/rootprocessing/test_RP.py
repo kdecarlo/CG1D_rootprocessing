@@ -268,60 +268,60 @@ class TestClass(unittest.TestCase):
                 
         shutil.rmtree(wd+'/Sample_Data_unittest')
 
-    def test_allimagesequal(self):
-        wd = self.data_path
-        sys.path.append(wd)
-        #sys.path.append(wd+'/Analyses')    #Not necessary anymore due to __init__.py - test later
-        #sys.path.append(wd+'/Misc')
-        wd_ = self.data_path2
+    #def test_allimagesequal(self):
+    #    wd = self.data_path
+    #    sys.path.append(wd)
+    #    #sys.path.append(wd+'/Analyses')    #Not necessary anymore due to __init__.py - test later
+    #    #sys.path.append(wd+'/Misc')
+    #    wd_ = self.data_path2
       
-        from sampledata import sampledata
-        from RP_run import RP_run
+    #    from sampledata import sampledata
+    #    from RP_run import RP_run
     
-        sampledata(wd, 1)
+    #    sampledata(wd, 1)
         
-        analysis_list = ['RP_stitch', 'RP_crop', 'RP_wc', 'RP_mask', 'RP_imagefilter','RP_distmap', 'RP_radwc', 'RP_thickness', 'RP_rootdiameter']
-        RP_run(wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
+    #    analysis_list = ['RP_stitch', 'RP_crop', 'RP_wc', 'RP_mask', 'RP_imagefilter','RP_distmap', 'RP_radwc', 'RP_thickness', 'RP_rootdiameter']
+    #    RP_run(wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
         
-        stitch_image = Image.open(wd+'/Sample_Data_unittest/stitched/SampleImg_stitched.tiff')
-        stitch_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/stitched/SampleImg_stitched.tiff')
-        self.assertTrue(np.array_equal(stitch_image, stitch_image_ideal))
+    #    stitch_image = Image.open(wd+'/Sample_Data_unittest/stitched/SampleImg_stitched.tiff')
+    #    stitch_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/stitched/SampleImg_stitched.tiff')
+    #    self.assertTrue(np.array_equal(stitch_image, stitch_image_ideal))
 
-        crop_image = Image.open(wd+'/Sample_Data_unittest/crop/SampleImg_crop.tiff')
-        crop_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/crop/SampleImg_crop.tiff')
-        self.assertTrue(np.array_equal(crop_image, crop_image_ideal))
+    #    crop_image = Image.open(wd+'/Sample_Data_unittest/crop/SampleImg_crop.tiff')
+    #    crop_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/crop/SampleImg_crop.tiff')
+    #    self.assertTrue(np.array_equal(crop_image, crop_image_ideal))
         
         
-        wc_image = Image.open(wd+'/Sample_Data_unittest/wc/SampleImg_wc.tiff')
-        wc_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/wc/SampleImg_wc.tiff')
-        self.assertTrue(np.array_equal(wc_image, wc_image_ideal))
+    #    wc_image = Image.open(wd+'/Sample_Data_unittest/wc/SampleImg_wc.tiff')
+    #    wc_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/wc/SampleImg_wc.tiff')
+    #    self.assertTrue(np.array_equal(wc_image, wc_image_ideal))
         
-        mask_image = Image.open(wd+'/Sample_Data_unittest/mask/SampleImg_mask.tiff')
-        mask_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/mask/SampleImg_mask.tiff')
-        self.assertTrue(np.array_equal(mask_image, mask_image_ideal))
+    #    mask_image = Image.open(wd+'/Sample_Data_unittest/mask/SampleImg_mask.tiff')
+    #    mask_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/mask/SampleImg_mask.tiff')
+    #    self.assertTrue(np.array_equal(mask_image, mask_image_ideal))
             
-        filter_image = Image.open(wd+'/Sample_Data_unittest/mask_filter/SampleImg_filter.tiff')
-        filter_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/mask_filter/SampleImg_filter.tiff')
-        self.assertTrue(np.array_equal(filter_image, filter_image_ideal))
+    #    filter_image = Image.open(wd+'/Sample_Data_unittest/mask_filter/SampleImg_filter.tiff')
+    #    filter_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/mask_filter/SampleImg_filter.tiff')
+    #    self.assertTrue(np.array_equal(filter_image, filter_image_ideal))
     
-        distmap_image = Image.open(wd+'/Sample_Data_unittest/distmap/SampleImg_distmap.tiff')
-        distmap_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/distmap/SampleImg_distmap.tiff')
-        self.assertTrue(np.array_equal(distmap_image, distmap_image_ideal))
+    #    distmap_image = Image.open(wd+'/Sample_Data_unittest/distmap/SampleImg_distmap.tiff')
+    #    distmap_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/distmap/SampleImg_distmap.tiff')
+    #    self.assertTrue(np.array_equal(distmap_image, distmap_image_ideal))
     
     
-        self.assertTrue(filecmp.cmp(wd+'/Sample_Data_unittest/radwc/SampleImg/SampleImg_data_distrange.txt', wd_+'/test/Sample_Data_ideal/radwc/SampleImg/SampleImg_data_distrange.txt'))
-        self.assertTrue(filecmp.cmp(wd+'/Sample_Data_unittest/radwc/SampleImg/SampleImg_data_num_xrad_ydist_wc.txt', wd_+'/test/Sample_Data_ideal/radwc/SampleImg/SampleImg_data_num_xrad_ydist_wc.txt'))
-        self.assertTrue(filecmp.cmp(wd+'/Sample_Data_unittest/radwc/SampleImg/SampleImg_data_radrange.txt', wd_+'/test/Sample_Data_ideal/radwc/SampleImg/SampleImg_data_radrange.txt'))
-        self.assertTrue(filecmp.cmp(wd+'/Sample_Data_unittest/radwc/SampleImg/SampleImg_data_xrad_ydist_wc.txt', wd_+'/test/Sample_Data_ideal/radwc/SampleImg/SampleImg_data_xrad_ydist_wc.txt'))
+    #    self.assertTrue(filecmp.cmp(wd+'/Sample_Data_unittest/radwc/SampleImg/SampleImg_data_distrange.txt', wd_+'/test/Sample_Data_ideal/radwc/SampleImg/SampleImg_data_distrange.txt'))
+    #    self.assertTrue(filecmp.cmp(wd+'/Sample_Data_unittest/radwc/SampleImg/SampleImg_data_num_xrad_ydist_wc.txt', wd_+'/test/Sample_Data_ideal/radwc/SampleImg/SampleImg_data_num_xrad_ydist_wc.txt'))
+    #    self.assertTrue(filecmp.cmp(wd+'/Sample_Data_unittest/radwc/SampleImg/SampleImg_data_radrange.txt', wd_+'/test/Sample_Data_ideal/radwc/SampleImg/SampleImg_data_radrange.txt'))
+    #    self.assertTrue(filecmp.cmp(wd+'/Sample_Data_unittest/radwc/SampleImg/SampleImg_data_xrad_ydist_wc.txt', wd_+'/test/Sample_Data_ideal/radwc/SampleImg/SampleImg_data_xrad_ydist_wc.txt'))
             
     
-        thickness_image = Image.open(wd+'/Sample_Data_unittest/thickness/SampleImg_thickness.tiff')
-        thickness_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/thickness/SampleImg_thickness.tiff')
-        self.assertTrue(np.array_equal(thickness_image, thickness_image_ideal))
+    #    thickness_image = Image.open(wd+'/Sample_Data_unittest/thickness/SampleImg_thickness.tiff')
+    #    thickness_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/thickness/SampleImg_thickness.tiff')
+    #    self.assertTrue(np.array_equal(thickness_image, thickness_image_ideal))
         
-        self.assertTrue(filecmp.cmp(wd+'/Sample_Data_unittest/rootdiameter/SampleImg_rootdiameter.txt', wd_+'/test/Sample_Data_ideal/rootdiameter/SampleImg_rootdiameter.txt'))
+    #    self.assertTrue(filecmp.cmp(wd+'/Sample_Data_unittest/rootdiameter/SampleImg_rootdiameter.txt', wd_+'/test/Sample_Data_ideal/rootdiameter/SampleImg_rootdiameter.txt'))
     
-        shutil.rmtree(wd+'/Sample_Data_unittest')
+    #    shutil.rmtree(wd+'/Sample_Data_unittest')
 
     
  
