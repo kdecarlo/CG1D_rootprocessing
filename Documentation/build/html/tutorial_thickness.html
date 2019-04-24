@@ -1,44 +1,168 @@
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8" />
-    <title>Getting Started: thickness &#8212; Root_Processing 1.1.9 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started: thickness &mdash; Root_Processing 1.1.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting Started: rootdiameter" href="tutorial_rootdiameter.html" />
-    <link rel="prev" title="Getting Started: radwc" href="tutorial_radwc.html" />
+    <link rel="prev" title="Getting Started: radwc" href="tutorial_radwc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
 
-          <div class="body" role="main">
+          
+            <a href="index.html" class="icon icon-home"> Root_Processing
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_stitch.html">Getting Started: stitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_crop.html">Getting Started: crop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_wc.html">Getting Started: wc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_mask.html">Getting Started: mask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_imagefilter.html">Getting Started: imagefilter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_distmap.html">Getting Started: distmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_radwc.html">Getting Started: radwc</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started: thickness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_rootdiameter.html">Getting Started: rootdiameter</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Root_Processing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started: thickness</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tutorial_thickness.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="getting-started-thickness">
 <h1>Getting Started: thickness<a class="headerlink" href="#getting-started-thickness" title="Permalink to this headline">¶</a></h1>
 <p><strong>I. OVERVIEW</strong></p>
 <p>The ‘RP_thickness’ analysis creates a half-thickness image from a binary segmented image, assuming a cylindrical shape.</p>
 <p>In this analysis, a skeleton (i.e. medial axis transform) of the binary image is calculated.  A distance transform of the root is then calculated - the distance transform on the medial axis pixel is labeled a “root radius” value R.</p>
-<p>From here, for every pixel [x, y]&lt;sub&gt;p&lt;sub&gt;, the closest root edge pixel [x, y]&lt;sub&gt;e&lt;sub&gt; that doesn’t intersect the medial axis is found.  We calculate the edge-pixel distance L&lt;sub&gt;EP&lt;sub&gt;.  Then, we extend the line between these two points, and extend it in the opposite direction, identifying the closest medial pixel [x, y]&lt;sub&gt;m&lt;sub&gt;, whose path consists entirely of the root (e.g. no medial axes that are located on other root segments).  From here, we use the R value assigned to [x, y]&lt;sub&gt;m&lt;sub&gt;.  Then, assuming a cylindrical distribution around the medial axis, we can calculate the half-dom height H of the pixel as follows:</p>
+<p>From here, for every pixel [x, y]&lt;sub&gt;p&lt;sub&gt;, the closest root edge pixel [x, y]&lt;sub&gt;e&lt;sub&gt; that doesn’t intersect the medial axis is found.  We calculate the edge-pixel distance L&lt;sub&gt;EP&lt;sub&gt;.  Then, we extend the line between these two points, and extend it in the opposite direction, identifying the closest medial pixel [x, y]&lt;sub&gt;m&lt;sub&gt;, whose path consists entirely of the root (e.g. no medial axes that are located on other root segments).  From here, we use the R value assigned to [x, y]&lt;sub&gt;m&lt;sub&gt;.  Then, assuming a cylindrical distribution around the medial axis, we can calculate the half-dome height H of the pixel as follows:</p>
 <img alt="_images/thickness_map.png" src="_images/thickness_map.png" />
 <p><em>Outline of the individual components in the thickness analysis.</em></p>
 <p>We assume that L_MP and L_EP are on an equal plane, thereby making R = L_MP + L_EP.  Then, assuming a cylindrical distribution around the medial axis, we can calculate the half-dome height H of the pixel as follows:</p>
@@ -50,90 +174,60 @@
 <p><strong>II. HOW TO USE</strong></p>
 <p>First, open the ‘user_config’ text file in your ‘Root_Processing’ directory.  The parameters used in ‘RP_thickness’ are in the 8th section, and there will be two parameters.  In order, they are:</p>
 <ol class="arabic simple">
-<li><p>image_filename: this is the full image filename (including directory) where the image is to be found.</p></li>
-<li><p>output_filename: this is the full image filename (including directory) where the image is to be saved.  If the directory is not present, the analysis will automatically make the directory.</p></li>
+<li>image_filename: this is the full image filename (including directory) where the image is to be found.</li>
+<li>output_filename: this is the full image filename (including directory) where the image is to be saved.  If the directory is not present, the analysis will automatically make the directory.</li>
 </ol>
 <p><strong>III. RUNNING THE CODE</strong></p>
 <p>This analysis can be conducted using the [‘RP_thickness’] string in the ‘RP_run’ module.</p>
 </div>
 
 
+           </div>
+           
           </div>
-          
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Root_Processing</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_stitch.html">Getting Started: Stitch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_crop.html">Getting Started: Crop</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_wc.html">Getting Started: wc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_mask.html">Getting Started: mask</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_imagefilter.html">Getting Started: imagefilter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_distmap.html">Getting Started: distmap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_radwc.html">Getting Started: radwc</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started: thickness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_rootdiameter.html">Getting Started: rootdiameter</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="tutorial_radwc.html" title="previous chapter">Getting Started: radwc</a></li>
-      <li>Next: <a href="tutorial_rootdiameter.html" title="next chapter">Getting Started: rootdiameter</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-    </form>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial_rootdiameter.html" class="btn btn-neutral float-right" title="Getting Started: rootdiameter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorial_radwc.html" class="btn btn-neutral float-left" title="Getting Started: radwc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  
 
+  <hr/>
 
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Keita DeCarlo
 
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-
-
-
+</footer>
 
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2019, Keita DeCarlo.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/tutorial_thickness.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
 
-    
+    </section>
 
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
     
-  </body>
+   
+
+</body>
 </html>

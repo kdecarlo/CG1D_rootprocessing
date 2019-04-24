@@ -1,7 +1,7 @@
 .. tutorial_crop:
 
 ************************
-Getting Started: Crop
+Getting Started: crop
 ************************
 
 **I. OVERVIEW**

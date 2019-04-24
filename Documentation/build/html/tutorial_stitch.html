@@ -1,102 +1,91 @@
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8" />
-    <title>Getting Started: Stitch &#8212; Root_Processing 1.1.9 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started: stitch &mdash; Root_Processing 1.1.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting Started: Crop" href="tutorial_crop.html" />
-    <link rel="prev" title="Getting Started" href="tutorial.html" />
+    <link rel="next" title="Getting Started: crop" href="tutorial_crop.html" />
+    <link rel="prev" title="Getting Started" href="tutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
 
-          <div class="body" role="main">
+          
+            <a href="index.html" class="icon icon-home"> Root_Processing
+          
+
+          
+          </a>
+
+          
             
-  <div class="section" id="getting-started-stitch">
-<h1>Getting Started: Stitch<a class="headerlink" href="#getting-started-stitch" title="Permalink to this headline">¶</a></h1>
-<p><strong>I. OVERVIEW</strong></p>
-<p>The ‘RP_stitch’ analysis takes the raw images outputted from the CG-1D beamline and stitches the images together, as well as applying the necessary image corrections.</p>
-<p><strong>II. HOW TO USE</strong></p>
-<p>First, open the ‘user_config’ text file in your ‘Root_Processing’ directory.  The first line will be ‘1. STITCH’, with the following 9 lines specifying the parameters used in the analysis.  In order, they are:</p>
-<ol class="arabic simple">
-<li><p>image_filename: this is the directory name where the raw files are to be found.  Our raw files are in the ‘Sample_Data/raw’ directory.  These are the images directly outputted by the CG1D beamline, and will have integer values (i.e. not corrected to transmission values).</p></li>
-<li><p>output_filename: this is the directory name where the images will be saved.  The program will automatically make a ‘stitched’ directory if not already present, so there is no need to create one manually.</p></li>
-<li><p>output_fileformat: this is the filename format you would like your images to be saved as.</p></li>
-</ol>
-<ol class="arabic simple" start="3">
-<li><p>fileformat: this is the fileformat of the image to be outputted.  The CG1D beamline outputs images in a ‘YYYYMMDD_filename_secondsexposed’ format, so this is what you will write here.</p></li>
-<li><p>dimv_horzoffset: this is the <em>horizontal</em> offset value (i.e. overlap) between two images in the <em>vertical</em> dimension.</p></li>
-</ol>
-<p>Essentially, this is the overlap between two horizontally adjacent images:</p>
-<img alt="_images/dimv_horzoffset.jpg" src="_images/dimv_horzoffset.jpg" />
-<ol class="arabic simple" start="5">
-<li><p>dimv_vertoffset: this is the <em>vertical</em> offset value between two images in the <em>vertical</em> dimension.</p></li>
-</ol>
-<p>Essentially, this is how much an image “drifts” downward with each table shift:</p>
-<img alt="_images/dimv_vertoffset.jpg" src="_images/dimv_vertoffset.jpg" />
-<ol class="arabic simple" start="6">
-<li><p>dimh_horzoffset: this is the <em>horizontal</em> offset value between two images in the <em>horizontal</em> dimension.</p></li>
-</ol>
-<p>Essentially, this is the overlap between two vertically adjacent images:</p>
-<img alt="_images/dimh_horzoffset.jpg" src="_images/dimh_horzoffset.jpg" />
-<ol class="arabic simple" start="7">
-<li><p>dimh_vertoffset: this is the <em>vertical</em> offset value between two images in the <em>horizontal</em> dimension.</p></li>
-</ol>
-<p>Essentially, this is how much an image “drifts” leftward between each table shift:</p>
-<img alt="_images/dimh_vertoffset.jpg" src="_images/dimh_vertoffset.jpg" />
-<ol class="arabic simple" start="8">
-<li><p>stitch_order: this is the array that specifies the order in which you would like to stitch your images.  The first two values indicate the number of (1) rows and (2) columns of raw images that your final stitched image will have.  The following numbers will specify the number label for each position, starting from row 1, column 1 (top left corner), and moving column by column, then moving on to the next row.</p></li>
-</ol>
-<p>So, using our sample data, we have 6 images to stitch, with 3 images per row, and 2 images per column.  So we will specify a 1x8 array, with the first two numbers being 2
-and 3.  From here, we will specify the image position.  Our images are called ‘19000101_Image_0060_0001.tiff’, ‘19000101_Image_0060_0002.tiff’, etc.  Our ‘fileformat’ parameter specifies the image name prefix (‘19000101_Image_0060’), so we will only need to specify the numbers here.    We want image 3 in the top left corner, with image 2 and then image 1 in the top middle and top right sections, respectively.  For the bottom row, we want images 6, 5, and 4 in the left, middle, and right sections, respectively.  Placing these numbers after the first two values in the 1x8 array will give us the final ‘stitch_order’ parameter.</p>
-<p><strong>III. RUNNING THE CODE</strong></p>
-<p>This analysis can be conducted using the [‘RP_stitch’] string in the ‘RP_run’ module.</p>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-
-          </div>
           
         </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Root_Processing</a></h1>
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents</span></p>
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Getting Started</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started: Stitch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_crop.html">Getting Started: Crop</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started: stitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_crop.html">Getting Started: crop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial_wc.html">Getting Started: wc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial_mask.html">Getting Started: mask</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial_imagefilter.html">Getting Started: imagefilter</a></li>
@@ -106,51 +95,156 @@ and 3.  From here, we will specify the image position.  Our images are called �
 <li class="toctree-l1"><a class="reference internal" href="tutorial_rootdiameter.html">Getting Started: rootdiameter</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="tutorial.html" title="previous chapter">Getting Started</a></li>
-      <li>Next: <a href="tutorial_crop.html" title="next chapter">Getting Started: Crop</a></li>
-  </ul></li>
-</ul>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Root_Processing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started: stitch</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tutorial_stitch.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
 </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-    </form>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started-stitch">
+<h1>Getting Started: stitch<a class="headerlink" href="#getting-started-stitch" title="Permalink to this headline">¶</a></h1>
+<p><strong>I. OVERVIEW</strong></p>
+<p>The ‘RP_stitch’ analysis takes the raw images outputted from the CG-1D beamline and stitches the images together, as well as applying the necessary image corrections.</p>
+<p><strong>II. HOW TO USE</strong></p>
+<p>First, open the ‘user_config’ text file in your ‘Root_Processing’ directory.  The first line will be ‘1. STITCH’, with the following 9 lines specifying the parameters used in the analysis.  In order, they are:</p>
+<ol class="arabic simple">
+<li>image_filename: this is the directory name where the raw files are to be found.  Our raw files are in the ‘Sample_Data/raw’ directory.  These are the images directly outputted by the CG1D beamline, and will have integer values (i.e. not corrected to transmission values).</li>
+<li>output_filename: this is the directory name where the images will be saved.  The program will automatically make a ‘stitched’ directory if not already present, so there is no need to create one manually.</li>
+<li>output_fileformat: this is the filename format you would like your images to be saved as.</li>
+</ol>
+<ol class="arabic simple" start="3">
+<li>fileformat: this is the fileformat of the image to be outputted.  The CG1D beamline outputs images in a ‘YYYYMMDD_filename_secondsexposed’ format, so this is what you will write here.</li>
+<li>dimv_horzoffset: this is the <em>horizontal</em> offset value (i.e. overlap) between two images in the <em>vertical</em> dimension.</li>
+</ol>
+<p>Essentially, this is the overlap between two horizontally adjacent images:</p>
+<img alt="_images/dimv_horzoffset.jpg" src="_images/dimv_horzoffset.jpg" />
+<ol class="arabic simple" start="5">
+<li>dimv_vertoffset: this is the <em>vertical</em> offset value between two images in the <em>vertical</em> dimension.</li>
+</ol>
+<p>Essentially, this is how much an image “drifts” downward with each table shift:</p>
+<img alt="_images/dimv_vertoffset.jpg" src="_images/dimv_vertoffset.jpg" />
+<ol class="arabic simple" start="6">
+<li>dimh_horzoffset: this is the <em>horizontal</em> offset value between two images in the <em>horizontal</em> dimension.</li>
+</ol>
+<p>Essentially, this is the overlap between two vertically adjacent images:</p>
+<img alt="_images/dimh_horzoffset.jpg" src="_images/dimh_horzoffset.jpg" />
+<ol class="arabic simple" start="7">
+<li>dimh_vertoffset: this is the <em>vertical</em> offset value between two images in the <em>horizontal</em> dimension.</li>
+</ol>
+<p>Essentially, this is how much an image “drifts” leftward between each table shift:</p>
+<img alt="_images/dimh_vertoffset.jpg" src="_images/dimh_vertoffset.jpg" />
+<ol class="arabic simple" start="8">
+<li>stitch_order: this is the array that specifies the order in which you would like to stitch your images.  The first two values indicate the number of (1) rows and (2) columns of raw images that your final stitched image will have.  The following numbers will specify the number label for each position, starting from row 1, column 1 (top left corner), and moving column by column, then moving on to the next row.</li>
+</ol>
+<p>So, using our sample data, we have 6 images to stitch, with 3 images per row, and 2 images per column.  So we will specify a 1x8 array, with the first two numbers being 2
+and 3.  From here, we will specify the image position.  Our images are called ‘19000101_Image_0060_0001.tiff’, ‘19000101_Image_0060_0002.tiff’, etc.  Our ‘fileformat’ parameter specifies the image name prefix (‘19000101_Image_0060’), so we will only need to specify the numbers here.    We want image 3 in the top left corner, with image 2 and then image 1 in the top middle and top right sections, respectively.  For the bottom row, we want images 6, 5, and 4 in the left, middle, and right sections, respectively.  Placing these numbers after the first two values in the 1x8 array will give us the final ‘stitch_order’ parameter.</p>
+<p><strong>III. RUNNING THE CODE</strong></p>
+<p>This analysis can be conducted using the [‘RP_stitch’] string in the ‘RP_run’ module.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial_crop.html" class="btn btn-neutral float-right" title="Getting Started: crop" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorial.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  
 
+  <hr/>
 
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Keita DeCarlo
 
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-
-
-
+</footer>
 
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2019, Keita DeCarlo.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/tutorial_stitch.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
 
-    
+    </section>
 
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
     
-  </body>
+   
+
+</body>
 </html>
