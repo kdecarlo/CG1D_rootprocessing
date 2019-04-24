@@ -1,6 +1,5 @@
 from __future__ import print_function
 import numpy as np
-from astropy.io import fits
 import time
 import scipy.ndimage as imp
 import datetime

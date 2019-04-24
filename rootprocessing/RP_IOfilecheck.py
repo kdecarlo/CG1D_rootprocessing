@@ -1,5 +1,5 @@
 import numpy as np
-from astropy.io import fits
+#from astropy.io import fits
 import time
 import scipy.ndimage as imp
 import datetime
@@ -41,15 +41,15 @@ def RP_IOfilecheck(input_filename, output_filename):
     if not os.path.isdir(output_filename):
         os.makedirs(output_filename)
     
-    if any(File.endswith('.fits') for File in os.listdir(input_filename)):
-        Icheck = 1
+    #if any(File.endswith('.fits') for File in os.listdir(input_filename)):
+    #    Icheck = 1
     if any(File.endswith('.tiff') for File in os.listdir(input_filename)):
         Icheck = 1
     if any(File.endswith('.txt') for File in os.listdir(input_filename)):
         Icheck = 1
     
-    if any(File.endswith('.fits') for File in os.listdir(output_filename)):
-        Ocheck = 1
+    #if any(File.endswith('.fits') for File in os.listdir(output_filename)):
+    #    Ocheck = 1
     if any(File.endswith('.tiff') for File in os.listdir(output_filename)):
         Ocheck = 1
     if any(File.endswith('.txt') for File in os.listdir(output_filename)):
