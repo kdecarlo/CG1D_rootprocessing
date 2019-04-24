@@ -1,5 +1,4 @@
 import numpy as np
-from astropy.io import fits
 import time
 import scipy.ndimage as imp
 import datetime

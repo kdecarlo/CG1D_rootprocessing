@@ -1,5 +1,4 @@
 import numpy as np
-from astropy.io import fits
 import time
 import scipy.ndimage as imp
 import datetime
@@ -137,12 +136,12 @@ def RP_stitch(parameters):
     if IO_OB is not True:
         raise ValueError('Open beam image not present in file.')
 
-    if imformat == 'fits':
-        ##DF
-        DF = fits.open(DF_filename)[0].data
-        ##OB
-        OB = fits.open(OB_filename)[0].data-DF
-    elif imformat == 'tiff':
+    #if imformat == 'fits':
+    #    ##DF
+    #    DF = fits.open(DF_filename)[0].data
+    #    ##OB
+    #    OB = fits.open(OB_filename)[0].data-DF
+    if imformat == 'tiff':
         DF = Image.open(DF_filename)
         OB = Image.open(OB_filename)
         DF = np.flipud(DF)
@@ -198,9 +197,9 @@ def RP_stitch(parameters):
         
         
         #print(filename)
-        if imformat == 'fits':
-            img = fits.open(filename)[0].data-DF
-        elif imformat == 'tiff':
+        #if imformat == 'fits':
+        #    img = fits.open(filename)[0].data-DF
+        if imformat == 'tiff':
             img = Image.open(filename)
             img = np.flipud(img)
             imdim_indcheck = np.shape(img)
@@ -225,12 +224,12 @@ def RP_stitch(parameters):
     col_first = np.nonzero(img_col)[0][0]
     col_last = np.nonzero(img_col)[0][np.shape(np.nonzero(img_col)[0])[0]-1]
 
-    if imformat == 'fits':
-        img = image[row_first:row_last,col_first:col_last]
-        imghdu = fits.PrimaryHDU(img)
-        hdulist = fits.HDUList([imghdu])
-        hdulist.writeto(output_fn)
-    elif imformat == 'tiff':
+    #if imformat == 'fits':
+    #    img = image[row_first:row_last,col_first:col_last]
+    #    imghdu = fits.PrimaryHDU(img)
+    #    hdulist = fits.HDUList([imghdu])
+    #    hdulist.writeto(output_fn)
+    if imformat == 'tiff':
         img = image[row_first:row_last,col_first:col_last]
         img = np.flipud(img)
         img = Image.fromarray(img)

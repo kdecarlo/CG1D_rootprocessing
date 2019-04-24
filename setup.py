@@ -11,7 +11,6 @@ setup(
 	test_suite = 'test', 
 	install_requires = [
 		'numpy', 
-		#'astropy',
 		'scipy',
 		'pillow',
 		],
