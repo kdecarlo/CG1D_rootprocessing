@@ -280,7 +280,7 @@ class TestClass(unittest.TestCase):
     
         sampledata(wd, 1)
         
-        analysis_list = ['RP_stitch', 'RP_crop', 'RP_wc', 'RP_mask', 'RP_imagefilter','RP_distmap', 'RP_radwc', 'RP_thickness', 'RP_rootimage']
+        analysis_list = ['RP_stitch', 'RP_crop', 'RP_wc', 'RP_mask', 'RP_imagefilter','RP_distmap', 'RP_radwc', 'RP_thickness', 'RP_rootdiameter']
         RP_run(wd, wd+'/Sample_Data_unittest', analysis_list, 0, 1)
         
         stitch_image = Image.open(wd+'/Sample_Data_unittest/stitched/SampleImg_stitched.tiff')
@@ -318,10 +318,8 @@ class TestClass(unittest.TestCase):
         thickness_image = Image.open(wd+'/Sample_Data_unittest/thickness/SampleImg_thickness.tiff')
         thickness_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/thickness/SampleImg_thickness.tiff')
         self.assertTrue(np.array_equal(thickness_image, thickness_image_ideal))
-                
-        ri_image = Image.open(wd+'/Sample_Data_unittest/rootimage/SampleImg_rootimage.tiff')
-        ri_image_ideal = Image.open(wd_+'/test/Sample_Data_ideal/rootimage/SampleImg_rootimage.tiff')
-        self.assertTrue(np.array_equal(ri_image, ri_image_ideal))
+        
+        self.assertTrue(filecmp.cmp(wd+'/Sample_Data_unittest/rootdiameter/SampleImg_rootdiameter.txt', wd_+'/test/Sample_Data_ideal/rootdiameter/SampleImg_rootdiameter.txt'))
     
         shutil.rmtree(wd+'/Sample_Data_unittest')
 

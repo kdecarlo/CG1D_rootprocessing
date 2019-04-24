@@ -1,6 +1,6 @@
 1. STITCH
-image_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/raw
-output_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/stitched
+image_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/raw
+output_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/stitched
 output_fileformat:SampleImg
 fileformat:19000101_Image_0060
 dimv_horzoffset:20
@@ -10,13 +10,13 @@ dimh_vertoffset:7
 stitch_order:2,3,3,2,1,6,5,4
 
 2. CROP
-image_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/stitched/SampleImg_stitched.tiff
-output_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/crop/SampleImg_crop.tiff
+image_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/stitched/SampleImg_stitched.tiff
+output_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/crop/SampleImg_crop.tiff
 cropmat:21,472,183,633
 
 3. WC
-image_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/crop/SampleImg_crop.tiff
-output_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/wc/SampleImg_wc.tiff
+image_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/crop/SampleImg_crop.tiff
+output_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/wc/SampleImg_wc.tiff
 b_w:-2.14
 s_w:5.3
 s_a:0.02015
@@ -25,36 +25,36 @@ x_s:1
 x_a:0.2
 
 4. MASK
-image_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/crop/SampleImg_crop.tiff
-output_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/mask/SampleImg_mask.tiff
+image_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/crop/SampleImg_crop.tiff
+output_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/mask/SampleImg_mask.tiff
 windowsize:11
 threshold:0.05
 globthresh:0.3
 
 5. IMAGEFILTER
-image_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/mask/SampleImg_mask.tiff
-output_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/mask_filter/SampleImg_filter.tiff
+image_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/mask/SampleImg_mask.tiff
+output_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/mask_filter/SampleImg_filter.tiff
 bwareaval:800
 medfilterval:5
 
 6. DISTMAP
-image_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/mask_filter/SampleImg_filter.tiff
-output_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/distmap/SampleImg_distmap.tiff
+image_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/mask_filter/SampleImg_filter.tiff
+output_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/distmap/SampleImg_distmap.tiff
 maxval:400
 
 7. RADWC
-wc_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/wc/SampleImg_wc.tiff
-distmap_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/distmap/SampleImg_distmap.tiff
-mask_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/mask/SampleImg_mask.tiff
-output_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/radwc/SampleImg
+wc_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/wc/SampleImg_wc.tiff
+distmap_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/distmap/SampleImg_distmap.tiff
+mask_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/mask/SampleImg_mask.tiff
+output_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/radwc/SampleImg
 fileformat:SampleImg
 pixelbin:1
 
 8. THICKNESS
-image_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/mask_filter/SampleImg_filter.tiff
-output_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/thickness/SampleImg_thickness.tiff
+image_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/mask_filter/SampleImg_filter.tiff
+output_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/thickness/SampleImg_thickness.tiff
 
-9. ROOTIMAGE
-wc_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/wc/SampleImg_wc.tiff
-mask_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/mask_filter/SampleImg_filter.tiff
-output_filename:/Users/kdecarlo/Python_scripts/Root_Processing/Sample_Data_unittest/rootimage/SampleImg_rootimage.tiff
+9. ROOTDIAMETER
+mask_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/mask_filter/SampleImg_filter.tiff
+output_filename:/Users/kdecarlo/Documents/Academic/Princeton/Work/Sample/Sample_Data/rootdiameter/SampleImg_rootdiameter.txt
+bincount:10
