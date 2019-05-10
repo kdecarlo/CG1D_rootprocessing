@@ -16,7 +16,7 @@ from rootprocessing.RP_timerend import RP_timerend
 from rootprocessing.RP_windowrange import RP_windowrange
 from rootprocessing.RP_distwindowrange import RP_distwindowrange
 from rootprocessing.RP_remove import RP_remove
-from rootprocessing.RP_linedraw import RP_linedraw
+from RP_linedraw import RP_linedraw
 
 def RP_thickness(parameters):
     '''
@@ -286,17 +286,14 @@ def RP_thickness(parameters):
     #imghdu = fits.PrimaryHDU(T_map)
     #hdulist = fits.HDUList([imghdu])
     #hdulist.writeto(output_filename)
-    
-    #Change all remaining negative values to rootdist
     T_map_neg = T_map < 0
-    if np.sum(T_map_neg) > 0:
-        pixelpos_neg = np.where(T_map_neg)
-        pixelpos_neg_y = pixelpos_neg[0]
-        pixelpos_neg_x = pixelpos_neg[1]
-        for m in range(0,np.shape(pixelpos_x)[0]):
-            i = pixelpos_neg_y[m]
-            j = pixelpos_neg_x[m]
-            T_map[i,j] = rootdist[i,j]*rootdist[i,j]
+    pixelpos_neg = np.where(T_map_neg)
+    pixelpos_neg_y = pixelpos_neg[0]
+    pixelpos_neg_x = pixelpos_neg[1]
+    for m in range(0,np.shape(pixelpos_x)[0]):
+        i = pixelpos_neg_y[m]
+        j = pixelpos_neg_x[m]
+        T_map[i,j] = rootdist[i,j]*rootdist[i,j]
 
 
     T_map = np.sqrt(T_map)

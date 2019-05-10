@@ -141,7 +141,7 @@ def RP_stitch(parameters):
     #    DF = fits.open(DF_filename)[0].data
     #    ##OB
     #    OB = fits.open(OB_filename)[0].data-DF
-    if imformat == 'tiff':
+    elif imformat == 'tiff':
         DF = Image.open(DF_filename)
         OB = Image.open(OB_filename)
         DF = np.flipud(DF)
@@ -167,6 +167,9 @@ def RP_stitch(parameters):
 
     stitch_list = np.zeros([dimval[0]*dimval[1]])
 
+    OB = OB - DF
+    OBzeros = (OB == 0) | (OB < 0)
+    OB[OBzeros] = 1
     
     counter = 0
     for i in range(0,dimval[0]):

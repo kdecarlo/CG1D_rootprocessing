@@ -16,7 +16,7 @@ from rootprocessing.RP_timerend import RP_timerend
 from rootprocessing.RP_windowrange import RP_windowrange
 from rootprocessing.RP_distwindowrange import RP_distwindowrange
 from rootprocessing.RP_remove import RP_remove
-from RP_linedraw import RP_linedraw
+from rootprocessing.RP_linedraw import RP_linedraw
 
 def RP_thickness(parameters):
     '''

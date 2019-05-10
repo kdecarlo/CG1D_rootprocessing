@@ -75,17 +75,36 @@ def RP_wc(parameters):
     C1 = s_w/(2*b_w)
     C2_s = s_a*x_s+s_s*x_s
 
-    image[image == 0] = 'nan'
-    image[image < 0] = 'nan'
-    x = C1*C1-(np.log(image)-C2_s)/b_w
-    maskneg = np.isnan(x)
-    np.shape(maskneg)
-    x[np.isnan(x)] = 0
-    x[x < 0] = 0
+    #image[image == 0] = 'nan'
+    #image[image < 0] = 'nan'
+    #x = C1*C1-(np.log(image)-(-C2_s))/b_w
+    #maskneg = np.isnan(x)
+    #np.shape(maskneg)
+    #x[np.isnan(x)] = 0
+    #x[x < 0] = 0
 
+    #x_w = -C1 - np.sqrt(x)
+    #x_w[x_w == -C1] = 'nan'
+    #x_w = x_w/x_s
+
+    imagevals = (image == 0) | (image < 0)
+    image[imagevals] = 1
+    x = C1*C1-(np.log(image)-(-C2_s))/b_w
+    x[imagevals] = 0
+    x[x < 0] = 0
     x_w = -C1 - np.sqrt(x)
-    x_w[x_w == -C1] = 'nan'
+    x_w[x_w == -C1] = 0
     x_w = x_w/x_s
+
+    pixelpos = np.where(x_w < 0)
+    pixelpos_y = pixelpos[0]
+    pixelpos_x = pixelpos[1]
+
+    for m in range(0, np.shape(pixelpos_y)[0]):
+        i = pixelpos_y[m]
+        j = pixelpos_x[m]
+
+        x_w[i,j] = 0
     
     x_w = Image.fromarray(x_w)
     x_w.save(output_filename)
