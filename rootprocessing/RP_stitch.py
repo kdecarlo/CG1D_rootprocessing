@@ -167,6 +167,9 @@ def RP_stitch(parameters):
 
     stitch_list = np.zeros([dimval[0]*dimval[1]])
 
+    OB = OB - DF
+    OBzeros = (OB == 0) | (OB < 0)
+    OB[OBzeros] = 1
     
     counter = 0
     for i in range(0,dimval[0]):
